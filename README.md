@@ -1,44 +1,65 @@
+# Neighborhood Map Project - Date Night Marietta
+##### By: Sarah Thomens
+
+## How to Install and Run Project
+To install and run this project:
+* Install all project dependencies with `npm install -g create-react-app`
+* Start the development server with `npm start`
+
+## Project To-Do's
+###### Map
+- [x] Get Google Maps API Key
+- [ ] Include key in project
+- [ ] Have a full-screen map in the application
+- [ ] The map API should be called only once `(??)`
+- [ ] Display a neighborhood by default (Marietta, Georgia)
+
+###### Markers
+- [ ] Display at least 5 map markers of places in the neighborhood
+- [ ] Markers should display by default when app is loaded
+- [ ] Clicking a marker will show information about the place `(??)`
+- [ ] Marker should animate in some way when clicked or selected on list
+
+###### List
+- [ ] Implement a list view of the marker locations `(??)`
+- [ ] Clicking a list item will show information about the place
+
+###### Filter
+- [ ] Provide a filter option (text field or drop-down menu)
+	* May NOT use 3rd party API search function
+- [ ] Filters both the List and Markers `(??)`
+- [ ] Should update in real time
+
+###### Third Party API
+- [ ] Add additional functionality using third-party API's when a map marker is clicked
+- [ ] Must be different from Google API's
+- [ ] AJAX requests to third-party server `(??)`
+- [ ] All API's should load asynchronously `(??)`
+
+###### Errors
+- [ ] Errors should be handled (user should know why something did not work)
+- [ ] No console errors should be present
+- [ ] Make sure to include error handling for when browswer had trouble initially reaching the API `(??)`
+
+###### Accessibility
+- [ ] Focus works correctly
+- [ ] Site elements are defined semantically or by ARIA roles when no semantic roles `(??)`
+- [ ] Images contain alternate text
+
+###### README and Comments
+- [x] A README file should be included with steps to run app successfully
+- [ ] Provide attribution to what is used in project in README file
+- [ ] Comments are present and well-organized
+
+###### Misc
+- [ ] The app is intuitive to use
+- [ ] The app is responsive (usable on mobile devices)
+- [ ] The app uses a serviceWorker for offline use
+- [x] The app is created using React
+- [ ] React components are used properly
+- [ ] State control is managed appropriately
+- [ ] Project uses git
+
+## Resources Used
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
