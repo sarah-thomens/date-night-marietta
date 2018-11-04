@@ -5,11 +5,30 @@ export class MapContainer extends Component
 {
   render( )
 	{
-    return (
-      <Map google={this.props.google} zoom={14}>
+		const { places } = this.props
+		let myColor = '#0000FF';
 
-        <Marker onClick={this.onMarkerClick}
-                name={'Current location'} />
+    return (
+      <Map
+				google={this.props.google}
+				zoom={18}
+				initialCenter=
+				{{
+          	lat: 33.95275160000001,
+            lng: -84.54961659999999
+        }}
+			>
+			{
+				places.map( (place) =>
+				(
+					<Marker
+						name={ place.name }
+						position={ place.latLong }
+						key={ place.id }
+						style={{ color: myColor }}
+					/>
+				)
+			)}
       </Map>
     );
   }
