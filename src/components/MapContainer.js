@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types'					// Imports PropTypes capability
+import PropTypes from 'prop-types';					// Imports PropTypes capability
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
+import PlaceInfo from './PlaceInfo';
 
 export class MapContainer extends Component
 {
@@ -11,23 +12,27 @@ export class MapContainer extends Component
 
 	state =
 	{
+		placeId: '',
 		showingInfoWindow: false,
     activeMarker: {},
     selectedPlace: {}
 	}
 
 	onMarkerClick = ( props, marker, e ) =>
+	{
     this.setState(
 		{
+			placeId: '',
       selectedPlace: props,
       activeMarker: marker,
       showingInfoWindow: true
     });
+	};
 
   render( )
 	{
 		const { places } = this.props
-		let myColor = '#0000FF';
+
 
     return (
       <Map
@@ -47,14 +52,15 @@ export class MapContainer extends Component
 							name={ place.name }
 							position={ place.latLong }
 							key={ place.id }
+							title={ place.id }
 						/>
 					)
 				)}
 				<InfoWindow
           marker={this.state.activeMarker}
           visible={this.state.showingInfoWindow}>
-						<PlaceInfo
-							placeId={selectedPlace.id}
+            <PlaceInfo
+              placeId={this.state.activeMarker.title || ''}
 						/>
         </InfoWindow>
       </Map>
