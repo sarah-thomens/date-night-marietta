@@ -12,7 +12,6 @@ export class MapContainer extends Component
 
 	state =
 	{
-		placeId: '',
 		showingInfoWindow: false,
     activeMarker: {},
     selectedPlace: {}
@@ -22,7 +21,6 @@ export class MapContainer extends Component
 	{
     this.setState(
 		{
-			placeId: '',
       selectedPlace: props,
       activeMarker: marker,
       showingInfoWindow: true
@@ -51,8 +49,7 @@ export class MapContainer extends Component
 							onClick={this.onMarkerClick}
 							name={ place.name }
 							position={ place.latLong }
-							key={ place.id }
-							title={ place.id }
+							key={ place.name }
 						/>
 					)
 				)}
@@ -60,7 +57,7 @@ export class MapContainer extends Component
           marker={this.state.activeMarker}
           visible={this.state.showingInfoWindow}>
             <PlaceInfo
-              placeId={this.state.activeMarker.title || ''}
+              placeId={this.state.selectedPlace.name || ''}
 						/>
         </InfoWindow>
       </Map>
