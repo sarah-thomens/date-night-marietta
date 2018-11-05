@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types'					// Imports PropTypes capability
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 
 export class MapContainer extends Component
 {
+	static propTypes =
+	{
+		places: PropTypes.array.isRequired
+	}
+
 	state =
 	{
 		showingInfoWindow: false,
@@ -47,9 +53,9 @@ export class MapContainer extends Component
 				<InfoWindow
           marker={this.state.activeMarker}
           visible={this.state.showingInfoWindow}>
-            <div>
-              <h1>{this.state.selectedPlace.name}</h1>
-            </div>
+						<PlaceInfo
+							placeId={selectedPlace.id}
+						/>
         </InfoWindow>
       </Map>
     );
