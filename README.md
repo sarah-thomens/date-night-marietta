@@ -9,13 +9,13 @@ To install and run this project:
 ## Project To-Do's
 ###### Map
 - [x] Get Google Maps API Key
-- [ ] Include key in project
-- [ ] Have a full-screen map in the application
-- [ ] The map API should be called only once `(??)`
-- [ ] Display a neighborhood by default (Marietta, Georgia)
+- [x] Include key in project
+- [x] Have a full-screen map in the application
+- [x] The map API should be called only once
+- [x] Display a neighborhood by default (Marietta, Georgia)
 
 ###### Markers
-- [ ] Display at least 5 map markers of places in the neighborhood
+- [x] Display at least 5 map markers of places in the neighborhood
 - [ ] Markers should display by default when app is loaded
 - [ ] Clicking a marker will show information about the place `(??)`
 - [ ] Marker should animate in some way when clicked or selected on list
@@ -61,5 +61,9 @@ To install and run this project:
 - [ ] Project uses git
 
 ## Resources Used
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+* This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+* Full Stack's google-maps-react component by Ari Lerner was used to help integrate the Google Map API into the React app. The tutorial was extremely helpful in helping to understand how the two work together and how to make the API work in my project.
+	* The tutorial is [here](https://www.fullstackreact.com/articles/how-to-write-a-google-maps-react-component/#)
+	* The github with the google-maps-react code is [here](https://github.com/fullstackreact/google-maps-react)
+* The hearts tab icon was found [here](https://icons8.com) by icon8
