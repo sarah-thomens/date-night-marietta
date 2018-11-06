@@ -1,17 +1,17 @@
 import React, { Component } from 'react';																			// Imports React Library
 import PropTypes from 'prop-types';																						// Imports PropTypes
 
-export class VenueFilter extends Component
+export class ListView extends Component
 {
 	//--Renders the VenueFilter Component-----------------------------------------------------------------------
   render( )
 	{
 		return (
-			<div className="venue-filter">
-				<h1>Venue Filter<h2>
+			<div className="list-view">
+				<h1>List View<h2>
 			</div>
 		);
 	}
 }
 
-export default VenueFilter;
+export default ListView;
