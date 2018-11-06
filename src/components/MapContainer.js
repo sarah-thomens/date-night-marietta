@@ -16,18 +16,39 @@ export class MapContainer extends Component
 	{
 		showingInfoWindow: false,
     activeMarker: {},
-    selectedPlace: {}
+    activeVenue: {}
 	}
 
 	//--onMarkerClick function that sets the state of the activeMarker and selectedPlace------------------------
 	onMarkerClick = ( props, marker, e ) =>
 	{
-    this.setState(
+		fetch( 'https://api.foursquare.com/v2/venues/'+marker.name+'?client_id=SGUQAZSZCYVPMR2KFU1ZGRYJJEKIOJ2M1PLMSTXIGLQSVDYS&client_secret=ZFAZYEHSNGWXJYUABZFTN0F45SSS14GUASWQEOTG240HTQ3M&v=20180323')
+			.then( (response) =>
+			{
+				return response.json( );
+			})
+			.then( (response) =>
+			{
+				this.setState(
+				{
+		      activeVenue: response.response.venue,
+		      activeMarker: marker,
+		      showingInfoWindow: true
+		    });
+			});
+	};
+
+	onMapClick = (props) =>
+	{
+		if( this.state.showingInfoWindow )
 		{
-      selectedPlace: props,
-      activeMarker: marker,
-      showingInfoWindow: true
-    });
+			this.setState(
+			{
+				showingInfoWindow: false,
+				activeMarker: {},
+				activeVenue: {}
+			});
+		}
 	};
 
 	//--Renders the MapContainer Component----------------------------------------------------------------------
@@ -65,7 +86,7 @@ export class MapContainer extends Component
 	          visible={this.state.showingInfoWindow}>
 							{/*--Sets up the info for each marker using PlaceInfo Component------------------------------*/}
 	            <PlaceInfo
-	              placeId={this.state.selectedPlace.name || ''}
+	              name={this.state.activeVenue.name || ''}
 							/>
 	        </InfoWindow>
 	      </Map>

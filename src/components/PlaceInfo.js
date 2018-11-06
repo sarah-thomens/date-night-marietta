@@ -6,24 +6,17 @@ export class PlaceInfo extends Component
 	//--PropTypes for PlaceInfo Component-----------------------------------------------------------------------
 	static propTypes =
 	{
-		placeId: PropTypes.string.isRequired
-	}
-
-	//--The state of the marker information---------------------------------------------------------------------
-	state =
-	{
-		name: '',
-		address: ''
+		name: PropTypes.string.isRequired
 	}
 
 	//--Rendering the information for each InfoWindow-----------------------------------------------------------
 	render( )
 	{
-		const { placeId } = this.props		// placeId number for each place
+		const { name } = this.props		// placeId number for each place
 
 		return(
-			<div>
-				<h1>{placeId}</h1>
+			<div className="place-info">
+				<h1>{name}</h1>
 			</div>
 		)
 	}
