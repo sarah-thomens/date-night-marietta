@@ -5,7 +5,8 @@ import './App.css';																		// Imports the CSS for the app
 
 class App extends Component
 {
-	placeIdsArray = [
+	placeIdsArray =
+	[
 		{
 			id: '4ec08a2b4fc6a7630f4faca7',
 			category: 'meal'
@@ -19,6 +20,7 @@ class App extends Component
 			category: 'entertainment'
 		}
 	];
+
 	//--The state of the markers array for the app--------------------------------------------------------------
   state =
 	{
@@ -28,44 +30,82 @@ class App extends Component
 		venues: []
   }
 
+	getVenues( )
+	{
+		return(
+			[
+				{
+					name: "Earl Smith Strand Theatre",
+					position: { lat: 33.953420661252444, lng: -84.54915785942272 },
+					address: "117 N Park Sq NE",
+					price: "",
+					picture: { 	prefix: "https://fastly.4sqi.net/img/general/",
+											suffix: "/31766099_wPSTdWjq_RCvlz1DQKuipOcOcR0zkoMupcSOKqaM_Qo.jpg" },
+					category: "entertainment"
+				},
+				{
+					name: "Sarah Jean's Ice Cream Shop",
+					position: { lat: 33.953182894707304, lng: -84.54938906649215 },
+					address: "109 N Park Sq NE",
+					price: "$",
+					picture: { 	prefix: "https://fastly.4sqi.net/img/general/",
+											suffix: "/VJCJ4F32CPGPCNREF0L0SVMJA2WUPZJVEG0GBTGKU2SS5JRT.jpg" },
+					category: "dessert-coffee"
+				},
+				{
+					name: "Taqueria Tsunami",
+					position: { lat: 33.95231669467316, lng: -84.54972668142698 },
+					address: "70 S Park Sq NE",
+					price: "$$",
+					picture: { 	prefix: "https://fastly.4sqi.net/img/general/",
+											suffix: "/38060631_6XzUSBpqesmn_d-NFrMl9FjU0KroDH1OgXBz9GnJq-U.jpg" },
+					category: "meal"
+				}
+			]
+		)
+	}
+
 	//--Function that gets venue information from the foursquare API and sets the venues state------------------
 	componentDidMount( )
 	{
-		this.placeIdsArray.forEach( (place) =>
-		{
-			fetch( 'https://api.foursquare.com/v2/venues/'+place.id+'?client_id=SGUQAZSZCYVPMR2KFU1ZGRYJJEKIOJ2M1PLMSTXIGLQSVDYS&client_secret=ZFAZYEHSNGWXJYUABZFTN0F45SSS14GUASWQEOTG240HTQ3M&v=20180323')
-			.then( (response) =>
-			{
-				return response.json( );
-			})
-			.then( (response) =>
-			{
-				let cost = '';
-				if( response.response.venue.price )
-				{
-					for( let i = 0; i < response.response.venue.price.tier; i++ )
-					{
-						cost += response.response.venue.price.currency
-					}
-				}
-
-				let venue =
-				{
-					name: response.response.venue.name,
-					position: { lat: response.response.venue.location.lat, lng: response.response.venue.location.lng },
-					address: response.response.venue.location.address,
-					price: cost,
-					picture: response.response.venue.bestPhoto,
-					category: place.category
-				}
-
-				this.setState({
-					venues: [...this.state.venues, venue ]
-				});
-
-				console.log(venue);
-			});
-		})
+		this.setState({
+			venues: this.getVenues( )
+		});
+		// this.placeIdsArray.forEach( (place) =>
+		// {
+		// 	fetch( 'https://api.foursquare.com/v2/venues/'+place.id+'?client_id=SGUQAZSZCYVPMR2KFU1ZGRYJJEKIOJ2M1PLMSTXIGLQSVDYS&client_secret=ZFAZYEHSNGWXJYUABZFTN0F45SSS14GUASWQEOTG240HTQ3M&v=20180323')
+		// 	.then( (response) =>
+		// 	{
+		// 		return response.json( );
+		// 	})
+		// 	.then( (response) =>
+		// 	{
+		// 		let cost = '';
+		// 		if( response.response.venue.price )
+		// 		{
+		// 			for( let i = 0; i < response.response.venue.price.tier; i++ )
+		// 			{
+		// 				cost += response.response.venue.price.currency
+		// 			}
+		// 		}
+		//
+		// 		let venue =
+		// 		{
+		// 			name: response.response.venue.name,
+		// 			position: { lat: response.response.venue.location.lat, lng: response.response.venue.location.lng },
+		// 			address: response.response.venue.location.address,
+		// 			price: cost,
+		// 			picture: response.response.venue.bestPhoto,
+		// 			category: place.category
+		// 		}
+		//
+		// 		this.setState({
+		// 			venues: [...this.state.venues, venue ]
+		// 		});
+		//
+		// 		console.log(response);
+		// 	});
+		// })
 	}
 
 	//--Render function to render the application---------------------------------------------------------------
