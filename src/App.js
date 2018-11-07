@@ -9,7 +9,7 @@ class App extends Component
 		{
 			id: '4ec08a2b4fc6a7630f4faca7',
 			category: 'meal'
-		}/*,
+		},
 		{
 			id: '4a8f0d7cf964a520c01320e3',
 			category: 'dessert-coffee'
@@ -17,7 +17,7 @@ class App extends Component
 	 	{
 			id: '4be413968a8cb713163ec4a0',
 			category: 'entertainment'
-		}*/
+		}
 	];
 	//--The state of the markers array for the app--------------------------------------------------------------
   state =
@@ -31,7 +31,7 @@ class App extends Component
 	//--Function that gets venue information from the foursquare API and sets the venues state------------------
 	componentDidMount( )
 	{
-		this.placeIdsArray.map( (place) =>
+		this.placeIdsArray.forEach( (place) =>
 		{
 			fetch( 'https://api.foursquare.com/v2/venues/'+place.id+'?client_id=SGUQAZSZCYVPMR2KFU1ZGRYJJEKIOJ2M1PLMSTXIGLQSVDYS&client_secret=ZFAZYEHSNGWXJYUABZFTN0F45SSS14GUASWQEOTG240HTQ3M&v=20180323')
 			.then( (response) =>
@@ -41,10 +41,12 @@ class App extends Component
 			.then( (response) =>
 			{
 				let cost = '';
-
-				for( let i = 0; i < response.response.venue.price.tier; i++ )
+				if( response.response.venue.price )
 				{
-					cost += response.response.venue.price.currency
+					for( let i = 0; i < response.response.venue.price.tier; i++ )
+					{
+						cost += response.response.venue.price.currency
+					}
 				}
 
 				let venue =
@@ -56,6 +58,11 @@ class App extends Component
 					picture: response.response.venue.bestPhoto,
 					category: place.category
 				}
+
+				this.setState({
+					venues: [...this.state.venues, venue ]
+				});
+
 				console.log(venue);
 			});
 		})
