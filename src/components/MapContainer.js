@@ -8,7 +8,7 @@ export class MapContainer extends Component
 	//--PropTypes for MapContainer Component--------------------------------------------------------------------
 	static propTypes =
 	{
-		places: PropTypes.array.isRequired		// places array
+		venues: PropTypes.array.isRequired		// venues array
 	}
 
 	//--The state of the map and its markers--------------------------------------------------------------------
@@ -22,20 +22,22 @@ export class MapContainer extends Component
 	//--onMarkerClick function that sets the state of the activeMarker and selectedPlace------------------------
 	onMarkerClick = ( props, marker, e ) =>
 	{
-		fetch( 'https://api.foursquare.com/v2/venues/'+marker.name+'?client_id=SGUQAZSZCYVPMR2KFU1ZGRYJJEKIOJ2M1PLMSTXIGLQSVDYS&client_secret=ZFAZYEHSNGWXJYUABZFTN0F45SSS14GUASWQEOTG240HTQ3M&v=20180323')
-			.then( (response) =>
+		let myVenue;
+
+		this.props.venues.forEach( (venue) =>
+		{
+			if( venue.id === marker.name )
 			{
-				return response.json( );
-			})
-			.then( (response) =>
-			{
-				this.setState(
-				{
-		      activeVenue: response.response.venue,
-		      activeMarker: marker,
-		      showingInfoWindow: true
-		    });
-			});
+				myVenue = venue;
+			}
+		})
+
+		this.setState(
+		{
+			activeVenue: myVenue,
+			activeMarker: marker,
+			showingInfoWindow: true
+		})
 	};
 
 	onMapClick = (props) =>
@@ -54,7 +56,7 @@ export class MapContainer extends Component
 	//--Renders the MapContainer Component----------------------------------------------------------------------
   render( )
 	{
-		const { places } = this.props			// places array prop
+		const { venues } = this.props			// places array prop
 
     return (
 			<div className="marietta-map">
@@ -70,13 +72,13 @@ export class MapContainer extends Component
 				>
 					{/*--Sets default markers on the map-------------------------------------------------------------*/}
 					{
-						places.map( (place) =>
+						venues.map( (venue) =>
 						(
 							<Marker
 								onClick={this.onMarkerClick}
-								name={ place.name }
-								position={ place.latLong }
-								key={ place.name }
+								name={ venue.id }
+								position={ venue.position }
+								key={ venue.id }
 							/>
 						)
 					)}

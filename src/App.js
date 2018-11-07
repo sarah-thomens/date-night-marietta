@@ -36,6 +36,7 @@ class App extends Component
 			[
 				{
 					name: "Earl Smith Strand Theatre",
+					id: '4be413968a8cb713163ec4a0',
 					position: { lat: 33.953420661252444, lng: -84.54915785942272 },
 					address: "117 N Park Sq NE",
 					price: "",
@@ -45,6 +46,7 @@ class App extends Component
 				},
 				{
 					name: "Sarah Jean's Ice Cream Shop",
+					id: '4a8f0d7cf964a520c01320e3',
 					position: { lat: 33.953182894707304, lng: -84.54938906649215 },
 					address: "109 N Park Sq NE",
 					price: "$",
@@ -54,6 +56,7 @@ class App extends Component
 				},
 				{
 					name: "Taqueria Tsunami",
+					id: '4ec08a2b4fc6a7630f4faca7',
 					position: { lat: 33.95231669467316, lng: -84.54972668142698 },
 					address: "70 S Park Sq NE",
 					price: "$$",
@@ -92,6 +95,7 @@ class App extends Component
 		// 		let venue =
 		// 		{
 		// 			name: response.response.venue.name,
+		//			id: place.id,
 		// 			position: { lat: response.response.venue.location.lat, lng: response.response.venue.location.lng },
 		// 			address: response.response.venue.location.address,
 		// 			price: cost,
@@ -119,9 +123,9 @@ class App extends Component
 				</div>
 				{/*--Map-------------------------------------------------------------------------------------------*/}
 				<div className='map'>
-					{/*<MapContainer
-						places={this.state.places}
-					/>*/}
+					<MapContainer
+						venues={this.state.venues}
+					/>
 				</div>
 			</div>
   	);
