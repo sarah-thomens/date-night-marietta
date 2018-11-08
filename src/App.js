@@ -118,7 +118,7 @@ class App extends Component
     return (
 			<div className='app'>
 				{/*--Main Page Header------------------------------------------------------------------------------*/}
-				<div className='app-title'>
+				<div className='app-header'>
 					<h1>Date Night Marietta</h1>
 				</div>
 				{/*--Map-------------------------------------------------------------------------------------------*/}

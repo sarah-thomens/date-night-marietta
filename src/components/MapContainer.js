@@ -63,10 +63,10 @@ export class MapContainer extends Component
 				{/*--Map Component to center map on Marietta Square------------------------------------------------*/}
 	      <Map
 					google={this.props.google}
-					zoom={18}
+					zoom={18.2}
 					initialCenter=
 					{{
-	          	lat: 33.95275160000001,
+	          	lat: 33.95245160000001,
 	            lng: -84.54961659999999
 	        }}
 				>

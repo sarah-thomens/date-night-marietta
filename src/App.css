@@ -1,0 +1,28 @@
+body, html
+{
+	height:100%;
+}
+
+body
+{
+	overflow: hidden;
+}
+
+#root
+{
+	height:100%;
+	overflow:hidden;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.app-header
+{
+	text-align: center;
+	width: 100%;
+}
+
+.map
+{
+	width: 100%;
+}
