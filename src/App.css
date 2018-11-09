@@ -35,6 +35,37 @@ body
 	/* height: 100%; */
 }
 
+.venues-list
+{
+	text-align: left;
+	list-style-type: none;
+}
+
+.meal
+{
+	color: blue;
+}
+
+.dessert-coffee
+{
+	color: red;
+}
+
+.entertainment
+{
+	color: purple;
+}
+
+.venue-name
+{
+	font-weight: bold;
+}
+
+.venue-cost
+{
+	font-weight: bold;
+}
+
 .map
 {
 	border: 2px solid lightgrey;
