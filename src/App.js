@@ -26,7 +26,7 @@ class App extends Component
   state =
 	{
 		//--A filter for the part of the date to search for-------------------------------------------------------
-		dateFilter: [ 'all' ],
+		dateFilter: 'all',
 		//--An array of places in Marietta to use for markers on the date map-------------------------------------
 		venues: []
   }
@@ -116,6 +116,17 @@ class App extends Component
 	//--Render function to render the application---------------------------------------------------------------
   render( )
 	{
+		let myVenues;
+
+		if( this.state.dateFilter === "all" )
+		{
+			myVenues = this.state.venues;
+		}
+		else
+		{
+			myVenues = this.state.venues.filter( (venue) => venue.category === this.state.dateFilter );
+		}
+
     return (
 			<div className='app'>
 				{/*--Main Page Header------------------------------------------------------------------------------*/}
@@ -125,13 +136,13 @@ class App extends Component
 				{/*--ListView--------------------------------------------------------------------------------------*/}
 				<div className='list-view'>
 					<ListView
-						venues={this.state.venues}
+						venues={myVenues}
 					/>
 				</div>
 				{/*--Map-------------------------------------------------------------------------------------------*/}
 				<div className='my-map'>
 					<MapContainer
-						venues={this.state.venues}
+						venues={myVenues}
 					/>
 				</div>
 			</div>
