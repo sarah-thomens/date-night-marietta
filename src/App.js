@@ -113,6 +113,13 @@ class App extends Component
 		// })
 	}
 
+	updateFilter = ( theFilter ) =>
+	{
+		this.setState({
+			dateFilter: theFilter
+		})
+	}
+
 	//--Render function to render the application---------------------------------------------------------------
   render( )
 	{
@@ -137,6 +144,7 @@ class App extends Component
 				<div className='list-view'>
 					<ListView
 						venues={myVenues}
+						updateFilter={this.updateFilter}
 					/>
 				</div>
 				{/*--Map-------------------------------------------------------------------------------------------*/}
