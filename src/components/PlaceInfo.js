@@ -22,7 +22,7 @@ export class PlaceInfo extends Component
 
 		return(
 			<div className="place-info">
-				<h1 className="place-name">{venue.name}</h1>
+				<h1 className="place-name">{venue.name || ""}</h1>
 				<div className="place-address">{venue.address || ""} - {venue.price || ""}</div>
 				<img src={myPhoto} alt={venue.name || "venue"}/>
 			</div>

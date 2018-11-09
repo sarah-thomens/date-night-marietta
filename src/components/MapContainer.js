@@ -69,6 +69,7 @@ export class MapContainer extends Component
 	          	lat: 33.95245160000001,
 	            lng: -84.54901659999999
 	        }}
+					onClick={this.onMapClick}
 				>
 					{/*--Sets default markers on the map-------------------------------------------------------------*/}
 					{

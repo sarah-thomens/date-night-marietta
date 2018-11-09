@@ -72,45 +72,45 @@ class App extends Component
 	//--Function that gets venue information from the foursquare API and sets the venues state------------------
 	componentDidMount( )
 	{
-		// this.setState({
-		// 	venues: this.getVenues( )
-		// });
-		this.placeIdsArray.forEach( (place) =>
-		{
-			fetch( 'https://api.foursquare.com/v2/venues/'+place.id+'?client_id=SGUQAZSZCYVPMR2KFU1ZGRYJJEKIOJ2M1PLMSTXIGLQSVDYS&client_secret=ZFAZYEHSNGWXJYUABZFTN0F45SSS14GUASWQEOTG240HTQ3M&v=20180323')
-			.then( (response) =>
-			{
-				return response.json( );
-			})
-			.then( (response) =>
-			{
-				let cost = '';
-				if( response.response.venue.price )
-				{
-					for( let i = 0; i < response.response.venue.price.tier; i++ )
-					{
-						cost += response.response.venue.price.currency
-					}
-				}
-
-				let venue =
-				{
-					name: response.response.venue.name,
-					id: place.id,
-					position: { lat: response.response.venue.location.lat, lng: response.response.venue.location.lng },
-					address: response.response.venue.location.address,
-					price: cost,
-					picture: response.response.venue.bestPhoto,
-					category: place.category
-				}
-
-				this.setState({
-					venues: [...this.state.venues, venue ]
-				});
-
-				console.log(response);
-			});
-		})
+		this.setState({
+			venues: this.getVenues( )
+		});
+		// this.placeIdsArray.forEach( (place) =>
+		// {
+		// 	fetch( 'https://api.foursquare.com/v2/venues/'+place.id+'?client_id=SGUQAZSZCYVPMR2KFU1ZGRYJJEKIOJ2M1PLMSTXIGLQSVDYS&client_secret=ZFAZYEHSNGWXJYUABZFTN0F45SSS14GUASWQEOTG240HTQ3M&v=20180323')
+		// 	.then( (response) =>
+		// 	{
+		// 		return response.json( );
+		// 	})
+		// 	.then( (response) =>
+		// 	{
+		// 		let cost = '';
+		// 		if( response.response.venue.price )
+		// 		{
+		// 			for( let i = 0; i < response.response.venue.price.tier; i++ )
+		// 			{
+		// 				cost += response.response.venue.price.currency
+		// 			}
+		// 		}
+		//
+		// 		let venue =
+		// 		{
+		// 			name: response.response.venue.name,
+		// 			id: place.id,
+		// 			position: { lat: response.response.venue.location.lat, lng: response.response.venue.location.lng },
+		// 			address: response.response.venue.location.address,
+		// 			price: cost,
+		// 			picture: response.response.venue.bestPhoto,
+		// 			category: place.category
+		// 		}
+		//
+		// 		this.setState({
+		// 			venues: [...this.state.venues, venue ]
+		// 		});
+		//
+		// 		console.log(response);
+		// 	});
+		// })
 	}
 
 	//--Render function to render the application---------------------------------------------------------------
