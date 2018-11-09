@@ -63,11 +63,11 @@ export class MapContainer extends Component
 				{/*--Map Component to center map on Marietta Square------------------------------------------------*/}
 	      <Map
 					google={this.props.google}
-					zoom={18.2}
+					zoom={18}
 					initialCenter=
 					{{
 	          	lat: 33.95245160000001,
-	            lng: -84.54961659999999
+	            lng: -84.54901659999999
 	        }}
 				>
 					{/*--Sets default markers on the map-------------------------------------------------------------*/}
@@ -88,7 +88,7 @@ export class MapContainer extends Component
 	          visible={this.state.showingInfoWindow}>
 							{/*--Sets up the info for each marker using PlaceInfo Component------------------------------*/}
 	            <PlaceInfo
-	              name={this.state.activeVenue.name || ''}
+	              venue={this.state.activeVenue || {}}
 							/>
 	        </InfoWindow>
 	      </Map>
