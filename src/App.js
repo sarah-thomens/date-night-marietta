@@ -1,5 +1,6 @@
 import React, { Component } from 'react';							// Imports React Library
 import MapContainer from './components/MapContainer';	// Imports MapContainer Component
+import ListView from './components/ListView';					// Imports ListView Component
 
 import './App.css';																		// Imports the CSS for the app
 
@@ -120,6 +121,11 @@ class App extends Component
 				{/*--Main Page Header------------------------------------------------------------------------------*/}
 				<div className='app-header'>
 					<h1>Date Night Marietta</h1>
+				</div>
+				{/*--ListView--------------------------------------------------------------------------------------*/}
+				<div className='list-view'>
+					<ListView
+					/>
 				</div>
 				{/*--Map-------------------------------------------------------------------------------------------*/}
 				<div className='map'>

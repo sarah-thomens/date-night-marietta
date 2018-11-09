@@ -7,8 +7,8 @@ export class ListView extends Component
   render( )
 	{
 		return (
-			<div className="list-view">
-				<h1>List View<h2>
+			<div className="list">
+				<h1>List View</h1>
 			</div>
 		);
 	}
