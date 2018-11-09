@@ -1,3 +1,15 @@
+html
+{
+	box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after
+{
+	box-sizing: inherit;
+}
+
 body, html
 {
 	height:100%;
@@ -12,13 +24,14 @@ body
 {
 	height:100%;
 	overflow:hidden;
-	display: flex;
-	flex-wrap: wrap;
 }
 
 .app
 {
 	width: 100%;
+	display: flex;
+	flex-flow: row wrap;
+	align-content: flex-start;
 }
 
 .app-header
@@ -66,7 +79,7 @@ body
 	font-weight: bold;
 }
 
-.map
+.my-map
 {
 	border: 2px solid lightgrey;
 	width: 70%;

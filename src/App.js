@@ -129,7 +129,7 @@ class App extends Component
 					/>
 				</div>
 				{/*--Map-------------------------------------------------------------------------------------------*/}
-				<div className='map'>
+				<div className='my-map'>
 					<MapContainer
 						venues={this.state.venues}
 					/>
