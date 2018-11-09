@@ -16,30 +16,30 @@ To install and run this project:
 
 ###### Markers
 - [x] Display at least 5 map markers of places in the neighborhood
-- [ ] Markers should display by default when app is loaded
-- [ ] Clicking a marker will show information about the place `(??)`
+- [x] Markers should display by default when app is loaded
+- [x] Clicking a marker will show information about the place
 - [ ] Marker should animate in some way when clicked or selected on list
 
 ###### List
-- [ ] Implement a list view of the marker locations `(??)`
+- [x] Implement a list view of the marker locations
 - [ ] Clicking a list item will show information about the place
 
 ###### Filter
 - [ ] Provide a filter option (text field or drop-down menu)
 	* May NOT use 3rd party API search function
-- [ ] Filters both the List and Markers `(??)`
+- [x] Filters both the List and Markers
 - [ ] Should update in real time
 
 ###### Third Party API
-- [ ] Add additional functionality using third-party API's when a map marker is clicked
-- [ ] Must be different from Google API's
-- [ ] AJAX requests to third-party server `(??)`
-- [ ] All API's should load asynchronously `(??)`
+- [x] Add additional functionality using third-party API's when a map marker is clicked
+- [x] Must be different from Google API's
+- [x] AJAX requests to third-party server
+- [x] All API's should load asynchronously
 
 ###### Errors
 - [ ] Errors should be handled (user should know why something did not work)
 - [ ] No console errors should be present
-- [ ] Make sure to include error handling for when browswer had trouble initially reaching the API `(??)`
+- [ ] Make sure to include error handling for when browser had trouble initially reaching the API `(??)`
 
 ###### Accessibility
 - [ ] Focus works correctly

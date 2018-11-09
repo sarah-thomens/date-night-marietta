@@ -42,9 +42,7 @@ body
 .list-view
 {
 	text-align: center;
-	border: 2px solid lightgrey;
 	width: 30%;
-	/* height: 100%; */
 }
 
 .venues-list
@@ -80,6 +78,5 @@ body
 
 .my-map
 {
-	border: 2px solid lightgrey;
 	width: 70%;
 }

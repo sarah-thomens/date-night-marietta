@@ -14,7 +14,7 @@ export class ListView extends Component
 	{
 		return (
 			<div className="list">
-				<h1>List View</h1>
+				<h2>Venues</h2>
 				<ul className="venues-list">
 					{ this.props.venues.map( (venue) => (
 						<li key={venue.id} className={venue.category}>
