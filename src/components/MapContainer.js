@@ -8,55 +8,18 @@ export class MapContainer extends Component
 	//--PropTypes for MapContainer Component--------------------------------------------------------------------
 	static propTypes =
 	{
-		venues: PropTypes.array.isRequired		// venues array
+		venues: PropTypes.array.isRequired,						// venues array
+		showingInfoWindow: PropTypes.bool.isRequired,	// boolean to tell when info window is open
+		activeMarker: PropTypes.object.isRequired,		// active marker object
+		activeVenue: PropTypes.object.isRequired,			// active venue object
+		onMarkerClick: PropTypes.func.isRequired,			// on Marker Click Function
+		onMapClick: PropTypes.func.isRequired					// on Map Click Function
 	}
-
-	//--The state of the map and its markers--------------------------------------------------------------------
-	state =
-	{
-		showingInfoWindow: false,
-    activeMarker: {},
-    activeVenue: {}
-	}
-
-	//--onMarkerClick function that sets the state of the activeMarker and selectedPlace------------------------
-	onMarkerClick = ( props, marker, e ) =>
-	{
-		let myVenue;
-
-		this.props.venues.forEach( (venue) =>
-		{
-			if( venue.id === marker.name )
-			{
-				myVenue = venue;
-			}
-		})
-
-		this.setState(
-		{
-			activeVenue: myVenue,
-			activeMarker: marker,
-			showingInfoWindow: true
-		})
-	};
-
-	onMapClick = (props) =>
-	{
-		if( this.state.showingInfoWindow )
-		{
-			this.setState(
-			{
-				showingInfoWindow: false,
-				activeMarker: {},
-				activeVenue: {}
-			});
-		}
-	};
 
 	//--Renders the MapContainer Component----------------------------------------------------------------------
   render( )
 	{
-		const { venues } = this.props			// places array prop
+		const { venues, showingInfoWindow, activeMarker, activeVenue, onMarkerClick, onMapClick } = this.props			// places array prop
 
     return (
 			<div className="marietta-map">
@@ -69,14 +32,14 @@ export class MapContainer extends Component
 	          	lat: 33.95245160000001,
 	            lng: -84.54901659999999
 	        }}
-					onClick={this.onMapClick}
+					onClick={onMapClick}
 				>
 					{/*--Sets default markers on the map-------------------------------------------------------------*/}
 					{
 						venues.map( (venue) =>
 						(
 							<Marker
-								onClick={this.onMarkerClick}
+								onClick={onMarkerClick}
 								name={ venue.id }
 								position={ venue.position }
 								key={ venue.id }
@@ -85,11 +48,11 @@ export class MapContainer extends Component
 					)}
 					{/*--Sets up InfoWindows for each of the markers-------------------------------------------------*/}
 					<InfoWindow
-	          marker={this.state.activeMarker}
-	          visible={this.state.showingInfoWindow}>
+	          marker={activeMarker}
+	          visible={showingInfoWindow}>
 							{/*--Sets up the info for each marker using PlaceInfo Component------------------------------*/}
 	            <PlaceInfo
-	              venue={this.state.activeVenue || {}}
+	              venue={activeVenue}
 							/>
 	        </InfoWindow>
 	      </Map>

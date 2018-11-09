@@ -28,7 +28,10 @@ class App extends Component
 		//--A filter for the part of the date to search for-------------------------------------------------------
 		dateFilter: 'all',
 		//--An array of places in Marietta to use for markers on the date map-------------------------------------
-		venues: []
+		venues: [],
+		showingInfoWindow: false,	// boolean to tell when info window is open
+		activeMarker: {},					// active marker object
+		activeVenue: {}						// active venue object
   }
 
 	getVenues( )
@@ -113,6 +116,40 @@ class App extends Component
 		// })
 	}
 
+	//--onMarkerClick function that sets the state of the activeMarker and selectedPlace------------------------
+	onMarkerClick = ( props, marker, e ) =>
+	{
+		let myVenue;
+
+		this.state.venues.forEach( (venue) =>
+		{
+			if( venue.id === marker.name )
+			{
+				myVenue = venue;
+			}
+		})
+
+		this.setState(
+		{
+			activeVenue: myVenue,
+			activeMarker: marker,
+			showingInfoWindow: true
+		})
+	};
+
+	onMapClick = (props) =>
+	{
+		if( this.state.showingInfoWindow )
+		{
+			this.setState(
+			{
+				showingInfoWindow: false,
+				activeMarker: {},
+				activeVenue: {}
+			});
+		}
+	};
+
 	updateFilter = ( theFilter ) =>
 	{
 		this.setState({
@@ -151,6 +188,11 @@ class App extends Component
 				<div className='my-map'>
 					<MapContainer
 						venues={myVenues}
+						showingInfoWindow= {this.state.showingInfoWindow}
+						activeMarker= {this.state.activeMarker}
+						activeVenue= {this.state.activeVenue}
+						onMarkerClick= {this.onMarkerClick}
+						onMapClick= {this.onMapClick}
 					/>
 				</div>
 			</div>
