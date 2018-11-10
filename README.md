@@ -22,13 +22,13 @@ To install and run this project:
 
 ###### List
 - [x] Implement a list view of the marker locations
-- [ ] Clicking a list item will show information about the place
+- [x] Clicking a list item will show information about the place
 
 ###### Filter
-- [ ] Provide a filter option (text field or drop-down menu)
+- [x] Provide a filter option (text field or drop-down menu)
 	* May NOT use 3rd party API search function
 - [x] Filters both the List and Markers
-- [ ] Should update in real time
+- [x] Should update in real time
 
 ###### Third Party API
 - [x] Add additional functionality using third-party API's when a map marker is clicked

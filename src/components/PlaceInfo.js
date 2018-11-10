@@ -17,7 +17,7 @@ export class PlaceInfo extends Component
 
 		if( venue.picture )
 		{
-			myPhoto = venue.picture.prefix + "300" + venue.picture.suffix
+			myPhoto = venue.picture.prefix + "150" + venue.picture.suffix
 		}
 
 		return(

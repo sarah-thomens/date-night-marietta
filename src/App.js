@@ -157,6 +157,14 @@ class App extends Component
 		})
 	}
 
+	updateActiveVenue = ( theVenue ) =>
+	{
+		this.setState({
+			activeVenue: theVenue,
+			showingInfoWindow: true
+		})
+	}
+
 	//--Render function to render the application---------------------------------------------------------------
   render( )
 	{
@@ -183,6 +191,7 @@ class App extends Component
 						venues={myVenues}
 						activeVenue={this.state.activeVenue}
 						updateFilter={this.updateFilter}
+						updateActiveVenue={this.updateActiveVenue}
 					/>
 				</div>
 				{/*--Map-------------------------------------------------------------------------------------------*/}

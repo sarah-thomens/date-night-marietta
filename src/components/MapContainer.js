@@ -48,7 +48,7 @@ export class MapContainer extends Component
 					)}
 					{/*--Sets up InfoWindows for each of the markers-------------------------------------------------*/}
 					<InfoWindow
-	          marker={activeMarker}
+	          position={activeVenue.position}
 	          visible={showingInfoWindow}
 						onClose={onInfoWindowClose}>
 							{/*--Sets up the info for each marker using PlaceInfo Component------------------------------*/}

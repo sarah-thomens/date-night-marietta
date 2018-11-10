@@ -6,9 +6,10 @@ export class ListView extends Component
 	//--PropTypes for ListView Component------------------------------------------------------------------------
 	static propTypes =
 	{
-		venues: PropTypes.array.isRequired,				// venues array
-		activeVenue: PropTypes.object.isRequired,	// active venue object
-		updateFilter: PropTypes.func.isRequired		// update filter function
+		venues: PropTypes.array.isRequired,						// venues array
+		activeVenue: PropTypes.object.isRequired,			// active venue object
+		updateFilter: PropTypes.func.isRequired,			// update filter function
+		updateActiveVenue: PropTypes.func.isRequired	// update active venue function
 	}
 
 	//--Renders the ListView Component--------------------------------------------------------------------------
@@ -55,7 +56,7 @@ export class ListView extends Component
 
 							return (
 								<div key={venue.id} className="venue">
-								<li className={activeClass}>
+								<li className={activeClass} onClick= {() => this.props.updateActiveVenue(venue)}>
 									<div className="venue-name">
 										{venue.name}
 									</div>
