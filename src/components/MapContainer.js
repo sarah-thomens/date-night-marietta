@@ -27,6 +27,7 @@ export class MapContainer extends Component
 	      <Map
 					google={this.props.google}
 					zoom={18}
+					draggable={false}
 					initialCenter=
 					{{
 	          	lat: 33.95245160000001,
