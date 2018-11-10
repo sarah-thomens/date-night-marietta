@@ -51,6 +51,11 @@ body
 	list-style-type: none;
 }
 
+.active-list-item
+{
+	border: 1px solid black;
+}
+
 .meal
 {
 	color: blue;

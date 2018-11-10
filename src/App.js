@@ -137,7 +137,7 @@ class App extends Component
 		})
 	};
 
-	onMapClick = (props) =>
+	onInfoWindowClose = (props) =>
 	{
 		if( this.state.showingInfoWindow )
 		{
@@ -181,6 +181,7 @@ class App extends Component
 				<div className='list-view'>
 					<ListView
 						venues={myVenues}
+						activeVenue={this.state.activeVenue}
 						updateFilter={this.updateFilter}
 					/>
 				</div>
@@ -192,7 +193,7 @@ class App extends Component
 						activeMarker= {this.state.activeMarker}
 						activeVenue= {this.state.activeVenue}
 						onMarkerClick= {this.onMarkerClick}
-						onMapClick= {this.onMapClick}
+						onInfoWindowClose= {this.onInfoWindowClose}
 					/>
 				</div>
 			</div>

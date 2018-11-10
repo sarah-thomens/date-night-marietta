@@ -13,13 +13,13 @@ export class MapContainer extends Component
 		activeMarker: PropTypes.object.isRequired,		// active marker object
 		activeVenue: PropTypes.object.isRequired,			// active venue object
 		onMarkerClick: PropTypes.func.isRequired,			// on Marker Click Function
-		onMapClick: PropTypes.func.isRequired					// on Map Click Function
+		onInfoWindowClose: PropTypes.func.isRequired	// on InfoWindow Closing function
 	}
 
 	//--Renders the MapContainer Component----------------------------------------------------------------------
   render( )
 	{
-		const { venues, showingInfoWindow, activeMarker, activeVenue, onMarkerClick, onMapClick } = this.props			// places array prop
+		const { venues, showingInfoWindow, activeMarker, activeVenue, onMarkerClick, onInfoWindowClose } = this.props			// places array prop
 
     return (
 			<div className="marietta-map">
@@ -32,7 +32,7 @@ export class MapContainer extends Component
 	          	lat: 33.95245160000001,
 	            lng: -84.54901659999999
 	        }}
-					onClick={onMapClick}
+					onClick={onInfoWindowClose}
 				>
 					{/*--Sets default markers on the map-------------------------------------------------------------*/}
 					{
@@ -49,7 +49,8 @@ export class MapContainer extends Component
 					{/*--Sets up InfoWindows for each of the markers-------------------------------------------------*/}
 					<InfoWindow
 	          marker={activeMarker}
-	          visible={showingInfoWindow}>
+	          visible={showingInfoWindow}
+						onClose={onInfoWindowClose}>
 							{/*--Sets up the info for each marker using PlaceInfo Component------------------------------*/}
 	            <PlaceInfo
 	              venue={activeVenue}

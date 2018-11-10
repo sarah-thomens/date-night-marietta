@@ -6,8 +6,9 @@ export class ListView extends Component
 	//--PropTypes for ListView Component------------------------------------------------------------------------
 	static propTypes =
 	{
-		venues: PropTypes.array.isRequired,			// venues array
-		updateFilter: PropTypes.func.isRequired	// update filter function
+		venues: PropTypes.array.isRequired,				// venues array
+		activeVenue: PropTypes.object.isRequired,	// active venue object
+		updateFilter: PropTypes.func.isRequired		// update filter function
 	}
 
 	//--Renders the ListView Component--------------------------------------------------------------------------
@@ -43,18 +44,28 @@ export class ListView extends Component
 					</button>
 				</div>
 				<ul className="venues-list">
-					{ this.props.venues.map( (venue) => (
-						<div key={venue.id} className="venue">
-							<li className={venue.category}>
-								<div className="venue-name">
-									{venue.name}
-								</div>
-								<div className="venue-address">
-									{venue.address}
-								</div>
-							</li>
-						</div>
-					))}
+					{ this.props.venues.map( (venue) =>
+						{
+							let activeClass = venue.category;
+
+							if( this.props.activeVenue.id && venue.id === this.props.activeVenue.id )
+							{
+								activeClass += " active-list-item";
+							}
+
+							return (
+								<div key={venue.id} className="venue">
+								<li className={activeClass}>
+									<div className="venue-name">
+										{venue.name}
+									</div>
+									<div className="venue-address">
+										{venue.address}
+									</div>
+								</li>
+							</div>
+						)
+					})}
 				</ul>
 			</div>
 		);
