@@ -56,9 +56,9 @@ To install and run this project:
 - [ ] The app is responsive (usable on mobile devices)
 - [ ] The app uses a serviceWorker for offline use
 - [x] The app is created using React
-- [ ] React components are used properly
-- [ ] State control is managed appropriately
-- [ ] Project uses git
+- [x] React components are used properly
+- [x] State control is managed appropriately
+- [x] Project uses git
 
 ## Resources Used
 * This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

@@ -28,6 +28,15 @@ export class MapContainer extends Component
 					google={this.props.google}
 					zoom={18}
 					draggable={false}
+					styles={[
+						{
+							featureType: "poi",
+							elementType:"labels",
+							stylers: [
+								{ visibility: "off" }
+							]
+						}
+					]}
 					initialCenter=
 					{{
 	          	lat: 33.95245160000001,
