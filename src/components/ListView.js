@@ -56,7 +56,10 @@ export class ListView extends Component
 
 							return (
 								<div key={venue.id} className="venue">
-								<li className={activeClass} onClick= {() => this.props.updateActiveVenue(venue)}>
+								<li
+									className={activeClass}
+									onClick= {() => this.props.updateActiveVenue(venue)}
+									tabIndex={0}>
 									<div className="venue-name">
 										{venue.name}
 									</div>

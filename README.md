@@ -44,7 +44,7 @@ To install and run this project:
 ###### Accessibility
 - [ ] Focus works correctly
 - [ ] Site elements are defined semantically or by ARIA roles when no semantic roles `(??)`
-- [ ] Images contain alternate text
+- [x] Images contain alternate text
 
 ###### README and Comments
 - [x] A README file should be included with steps to run app successfully
