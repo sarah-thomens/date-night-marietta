@@ -22,7 +22,7 @@ export class MapContainer extends Component
 		const { venues, showingInfoWindow, activeMarker, activeVenue, onMarkerClick, onInfoWindowClose } = this.props			// places array prop
 
     return (
-			<div className="marietta-map">
+			<div className="marietta-map" aria-label="map">
 				{/*--Map Component to center map on Marietta Square------------------------------------------------*/}
 	      <Map
 					google={this.props.google}

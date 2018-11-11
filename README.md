@@ -43,7 +43,7 @@ To install and run this project:
 
 ###### Accessibility
 - [ ] Focus works correctly
-- [ ] Site elements are defined semantically or by ARIA roles when no semantic roles `(??)`
+- [x] Site elements are defined semantically or by ARIA roles when no semantic roles
 - [x] Images contain alternate text
 
 ###### README and Comments

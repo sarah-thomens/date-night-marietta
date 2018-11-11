@@ -18,7 +18,7 @@ export class ListView extends Component
 		return (
 			<div className="list">
 				<h2>Venues</h2>
-				<div className="filter-options">
+				<div className="filter-options" role="group" aria-label="Filter Buttons">
 					<button
 						className="all"
 						onClick= {() => this.props.updateFilter("all")}
@@ -44,7 +44,7 @@ export class ListView extends Component
 						Fun
 					</button>
 				</div>
-				<ul className="venues-list">
+				<ul className="venues-list" role="group" aria-label="Venue List">
 					{ this.props.venues.map( (venue) =>
 						{
 							let activeClass = venue.category;
