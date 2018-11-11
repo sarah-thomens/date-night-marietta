@@ -28,6 +28,12 @@ export class MapContainer extends Component
 					google={this.props.google}
 					zoom={18}
 					draggable={false}
+					zoomControl={false}
+					clickableIcons={false}
+					mapTypeControl={false}
+					streetViewControl={false}
+					fullScreenControl={false}
+					scaleControl={false}
 					styles={[
 						{
 							featureType: "poi",
