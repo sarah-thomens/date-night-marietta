@@ -6,34 +6,36 @@ import './App.css';																		// Imports the CSS for the app
 
 class App extends Component
 {
+	//--An Array containing the id and category of Marietta Venues----------------------------------------------
 	placeIdsArray =
 	[
+		//--Taqueria Tsunami Object-------------------------------------------------------------------------------
 		{
 			id: '4ec08a2b4fc6a7630f4faca7',
 			category: 'meal'
 		},
+		//--Sarah Jean's Ice Cream Object-------------------------------------------------------------------------
 		{
 			id: '4a8f0d7cf964a520c01320e3',
 			category: 'dessert-coffee'
 		},
+		//--Earl Smith Strand Theatre Object----------------------------------------------------------------------
 	 	{
 			id: '4be413968a8cb713163ec4a0',
 			category: 'entertainment'
 		}
 	];
 
-	//--The state of the markers array for the app--------------------------------------------------------------
+	//--The states of the app-----------------------------------------------------------------------------------
   state =
 	{
-		//--A filter for the part of the date to search for-------------------------------------------------------
-		dateFilter: 'all',
-		//--An array of places in Marietta to use for markers on the date map-------------------------------------
-		venues: [],
-		showingInfoWindow: false,	// boolean to tell when info window is open
-		activeMarker: {},					// active marker object
-		activeVenue: {}						// active venue object
+		venues: [], 							// array of venues in Marietta
+		activeVenue: {},					// active venue object
+		dateFilter: 'all',				// category filter for the date venues
+		showingInfoWindow: false	// boolean to tell when info window is open
   }
 
+	// TODO: DELETE THIS FUNCTION WHEN DONE TESTING THE APP-----------------------------------------------------
 	getVenues( )
 	{
 		return(
@@ -75,45 +77,53 @@ class App extends Component
 	//--Function that gets venue information from the foursquare API and sets the venues state------------------
 	componentDidMount( )
 	{
-		this.setState({
-			venues: this.getVenues( )
-		});
-		// this.placeIdsArray.forEach( (place) =>
-		// {
-		// 	fetch( 'https://api.foursquare.com/v2/venues/'+place.id+'?client_id=SGUQAZSZCYVPMR2KFU1ZGRYJJEKIOJ2M1PLMSTXIGLQSVDYS&client_secret=ZFAZYEHSNGWXJYUABZFTN0F45SSS14GUASWQEOTG240HTQ3M&v=20180323')
-		// 	.then( (response) =>
-		// 	{
-		// 		return response.json( );
-		// 	})
-		// 	.then( (response) =>
-		// 	{
-		// 		let cost = '';
-		// 		if( response.response.venue.price )
-		// 		{
-		// 			for( let i = 0; i < response.response.venue.price.tier; i++ )
-		// 			{
-		// 				cost += response.response.venue.price.currency
-		// 			}
-		// 		}
-		//
-		// 		let venue =
-		// 		{
-		// 			name: response.response.venue.name,
-		// 			id: place.id,
-		// 			position: { lat: response.response.venue.location.lat, lng: response.response.venue.location.lng },
-		// 			address: response.response.venue.location.address,
-		// 			price: cost,
-		// 			picture: response.response.venue.bestPhoto,
-		// 			category: place.category
-		// 		}
-		//
-		// 		this.setState({
-		// 			venues: [...this.state.venues, venue ]
-		// 		});
-		//
-		// 		console.log(response);
-		// 	});
-		// })
+		// this.setState({
+		// 	venues: this.getVenues( )
+		// });
+		//--Foreach venue in Marietta...--------------------------------------------------------------------------
+		this.placeIdsArray.forEach( (place) =>
+		{
+			//--Fetch the venue information from FourSquare API-----------------------------------------------------
+			fetch( 'https://api.foursquare.com/v2/venues/'+place.id+'?client_id=SGUQAZSZCYVPMR2KFU1ZGRYJJEKIOJ2M1PLMSTXIGLQSVDYS&client_secret=ZFAZYEHSNGWXJYUABZFTN0F45SSS14GUASWQEOTG240HTQ3M&v=20180323')
+			//--Turn information into a json file-------------------------------------------------------------------
+			.then( (response) =>
+			{
+				return response.json( );
+			})
+			.then( (response) =>
+			{
+				let cost = '';		// cost variable for venue pricing
+
+				//--if there is a price on the venue...---------------------------------------------------------------
+				if( response.response.venue.price )
+				{
+					//--set the cost to dollar signs depending on tier level--------------------------------------------
+					for( let i = 0; i < response.response.venue.price.tier; i++ )
+					{
+						cost += response.response.venue.price.currency
+					}
+				}
+
+				//--Set the venue information to a venue variable-----------------------------------------------------
+				let venue =
+				{
+					name: response.response.venue.name,
+					id: place.id,
+					position: { lat: response.response.venue.location.lat, lng: response.response.venue.location.lng },
+					address: response.response.venue.location.address,
+					price: cost,
+					picture: response.response.venue.bestPhoto,
+					category: place.category
+				}
+
+				//--Add the new venue to the venues state-------------------------------------------------------------
+				this.setState({
+					venues: [...this.state.venues, venue ]
+				});
+			})
+			//--If an error occurs, let the user know---------------------------------------------------------------
+			.catch( e => { alert("Foursquare Loading Error: \n" + e); } )
+		})
 	}
 
 	//--onMarkerClick function that sets the state of the activeMarker and selectedPlace------------------------
