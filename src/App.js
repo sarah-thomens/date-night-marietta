@@ -153,7 +153,8 @@ class App extends Component
 	updateFilter = ( theFilter ) =>
 	{
 		this.setState({
-			dateFilter: theFilter
+			dateFilter: theFilter,
+			showingInfoWindow: false
 		})
 	}
 
