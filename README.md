@@ -42,7 +42,7 @@ To install and run this project:
 - [ ] Make sure to include error handling for when browser had trouble initially reaching the API `(??)`
 
 ###### Accessibility
-- [ ] Focus works correctly
+- [x] Focus works correctly
 - [x] Site elements are defined semantically or by ARIA roles when no semantic roles
 - [x] Images contain alternate text
 

@@ -59,6 +59,8 @@ export class ListView extends Component
 								<li
 									className={activeClass}
 									onClick= {() => this.props.updateActiveVenue(venue)}
+									onFocus= {() => this.props.updateActiveVenue(venue)}
+									onBlur= {() => this.props.updateActiveVenue({ })}
 									tabIndex={0}>
 									<div className="venue-name">
 										{venue.name}
