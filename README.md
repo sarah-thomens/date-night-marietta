@@ -66,4 +66,4 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 * Full Stack's google-maps-react component by Ari Lerner was used to help integrate the Google Map API into the React app. The tutorial was extremely helpful in helping to understand how the two work together and how to make the API work in my project.
 	* The tutorial is [here](https://www.fullstackreact.com/articles/how-to-write-a-google-maps-react-component/#)
 	* The github with the google-maps-react code is [here](https://github.com/fullstackreact/google-maps-react)
-* The hearts tab icon was found [here](https://icons8.com) by icon8
+* The hearts tab icon and the map marker icons were found [here](https://icons8.com) by icon8

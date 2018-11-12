@@ -19,7 +19,19 @@ export class MapContainer extends Component
   render( )
 	{
 		const {venues, showingInfoWindow, activeVenue, onMarkerClick, onInfoWindowClose} = this.props	//all props
-		let myIcon;
+		let myIcon;								// variable to house map marker icons
+		let infoWindowPosition;		// variable to house infoWindow lat and lng
+
+		//--If there is a position on the activeVenue...----------------------------------------------------------
+		if( activeVenue.position )
+		{
+			//--Set the lat and lng of the infoWindow to be a bit aboce the activeVenue-----------------------------
+			infoWindowPosition =
+			{
+				lat: activeVenue.position.lat + .00027,
+				lng: activeVenue.position.lng
+			}
+		}
 
     return (
 			<div className="marietta-map" aria-label="map">
@@ -65,12 +77,14 @@ export class MapContainer extends Component
 								case "entertainment":
 									myIcon = "./green.png";
 									break;
+								default:
+									myIcon = "./red.png";
+									break;
 							}
 
 							return (
 								<Marker
 									onClick={onMarkerClick}
-									onMouseOver={ ( ) => {console.log('mouse overing')}}
 									name={venue.id || ''}
 									position={venue.position}
 									key={venue.id || ''}
@@ -81,7 +95,7 @@ export class MapContainer extends Component
 					)}
 					{/*--Sets up InfoWindows for each of the markers-------------------------------------------------*/}
 					<InfoWindow
-	          position={activeVenue.position}
+	          position={infoWindowPosition || activeVenue.position}
 	          visible={showingInfoWindow || false}
 						onClose={onInfoWindowClose}>
 							{/*--Sets up the info for each marker using PlaceInfo Component------------------------------*/}

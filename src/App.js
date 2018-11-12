@@ -150,14 +150,31 @@ class App extends Component
 			}
 		})
 
-		//--If myVenue is not null, set states of activeVenue and ShowingInfoWindow-------------------------------
+		//--If myVenue is not null...-----------------------------------------------------------------------------
 		if( myVenue !== undefined )
 		{
+			//--Set states of activeVenue and ShowingInfoWindow-----------------------------------------------------
 			this.setState(
 			{
 				activeVenue: myVenue,
 				showingInfoWindow: true
 			});
+
+			//--Change the icon to show a highlighted version of the icon-------------------------------------------
+			switch( myVenue.category )
+			{
+				case "meal":
+					myVenue.icon = "./red-highlight.png"
+					break;
+				case "dessert-coffee":
+					myVenue.icon = "./blue-highlight.png"
+					break;
+				case "entertainment":
+					myVenue.icon = "./green-highlight.png"
+					break;
+				default:
+					break;
+			}
 		}
 		//--Else set a venue stating no information was found at the map center-----------------------------------
 		else
