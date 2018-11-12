@@ -74,7 +74,11 @@ class App extends Component
 		)
 	}
 
-	//--Function that gets venue information from the foursquare API and sets the venues state------------------
+	//----------------------------------------------------------------------------------------------------------
+	// componentDidMount Function
+	//
+	// Gets venue information from the foursquare API and sets the venues state
+	//----------------------------------------------------------------------------------------------------------
 	componentDidMount( )
 	{
 		this.setState({
@@ -126,10 +130,14 @@ class App extends Component
 		// })
 	}
 
-	//--onMarkerClick function that sets the state of the activeVenue and ShpwingInfoWindow---------------------
+	//----------------------------------------------------------------------------------------------------------
+	// onMarkerClick function
+	//
+	// Sets the state of the activeVenue and ShowingInfoWindow.
+	//----------------------------------------------------------------------------------------------------------
 	onMarkerClick = ( props, marker, e ) =>
 	{
-		let myVenue = {};		// variable to hold the venue accessed by the marker click
+		let myVenue;		// variable to hold the venue accessed by the marker click
 
 		//--foreach venue in venues state...----------------------------------------------------------------------
 		this.state.venues.forEach( (venue) =>
@@ -143,7 +151,7 @@ class App extends Component
 		})
 
 		//--If myVenue is not null, set states of activeVenue and ShowingInfoWindow-------------------------------
-		if( myVenue !== null )
+		if( myVenue !== undefined )
 		{
 			this.setState(
 			{
@@ -151,29 +159,70 @@ class App extends Component
 				showingInfoWindow: true
 			})
 		}
-	};
-
-	onInfoWindowClose = (props) =>
-	{
-		if( this.state.showingInfoWindow )
+		//--Else set a venue stating no information was found at the map center-----------------------------------
+		else
 		{
 			this.setState(
 			{
+				activeVenue: { name: "No venue information found.",
+											 id: "",
+											 position: { lat: 33.95245160000001, lng: -84.54901659999999 },
+											 address: "",
+											 category: "all"},
+				showingInfoWindow: true
+			})
+		}
+	};
+
+	//----------------------------------------------------------------------------------------------------------
+	// onInfoWindowClose Function
+	//
+	// Closes the info window function by setting the showingInfoWindow boolean to false and the activeVenue
+	// to an empty object.
+	//----------------------------------------------------------------------------------------------------------
+	onInfoWindowClose = (props) =>
+	{
+		//--If the Info Window is showing...----------------------------------------------------------------------
+		if( this.state.showingInfoWindow )
+		{
+			//--Set the states to close the info window and clear the active venue----------------------------------
+			this.setState(
+			{
 				showingInfoWindow: false,
-				activeMarker: {},
 				activeVenue: {}
 			});
 		}
 	};
 
+	//----------------------------------------------------------------------------------------------------------
+	// updateFilter Function
+	//
+	// Updates the filter state to the passed filter option and closes the info window if needed.
+	//----------------------------------------------------------------------------------------------------------
 	updateFilter = ( theFilter ) =>
 	{
-		this.setState({
-			dateFilter: theFilter,
-			showingInfoWindow: false
-		})
+		//--If theFilter has content, set the dateFilter state----------------------------------------------------
+		if( theFilter !== '' )
+		{
+			this.setState({
+				dateFilter: theFilter,
+				showingInfoWindow: false
+			});
+		}
+		//--If theFilter does not have content, set it to the default, "all"--------------------------------------
+		else
+		{
+			this.setState({
+				dateFilter: "all"
+			})
+		}
 	}
 
+	//----------------------------------------------------------------------------------------------------------
+	// updateActiveVenue Function
+	//
+	//
+	//----------------------------------------------------------------------------------------------------------
 	updateActiveVenue = ( theVenue ) =>
 	{
 		this.setState({

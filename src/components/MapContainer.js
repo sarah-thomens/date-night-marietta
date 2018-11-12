@@ -69,7 +69,7 @@ export class MapContainer extends Component
 						onClose={onInfoWindowClose}>
 							{/*--Sets up the info for each marker using PlaceInfo Component------------------------------*/}
 	            <PlaceInfo
-	              venue={activeVenue}
+	              venue={activeVenue || {}}
 							/>
 	        </InfoWindow>
 	      </Map>
