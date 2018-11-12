@@ -261,7 +261,7 @@ class App extends Component
 				<div className='list-view'>
 					<ListView
 						venues={myVenues}
-						activeVenue={this.state.activeVenue}
+						activeVenue={this.state.activeVenue || {}}
 						updateFilter={this.updateFilter}
 						updateActiveVenue={this.updateActiveVenue}
 					/>
@@ -270,8 +270,8 @@ class App extends Component
 				<div className='my-map'>
 					<MapContainer
 						venues={myVenues}
-						showingInfoWindow= {this.state.showingInfoWindow}
-						activeVenue= {this.state.activeVenue}
+						showingInfoWindow= {this.state.showingInfoWindow || false}
+						activeVenue= {this.state.activeVenue || {}}
 						onMarkerClick= {this.onMarkerClick}
 						onInfoWindowClose= {this.onInfoWindowClose}
 					/>
