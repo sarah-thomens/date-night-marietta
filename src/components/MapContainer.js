@@ -19,6 +19,7 @@ export class MapContainer extends Component
   render( )
 	{
 		const {venues, showingInfoWindow, activeVenue, onMarkerClick, onInfoWindowClose} = this.props	//all props
+		let myIcon;
 
     return (
 			<div className="marietta-map" aria-label="map">
@@ -52,14 +53,31 @@ export class MapContainer extends Component
 					{/*--Sets default markers on the map-------------------------------------------------------------*/}
 					{
 						venues.map( (venue) =>
-						(
-							<Marker
-								onClick={onMarkerClick}
-								name={venue.id || ''}
-								position={venue.position}
-								key={venue.id || ''}
-							/>
-						)
+						{
+							switch( venue.category )
+							{
+								case "meal":
+									myIcon = "./red.png";
+									break;
+								case "dessert-coffee":
+									myIcon = "./blue.png";
+									break;
+								case "entertainment":
+									myIcon = "./green.png";
+									break;
+							}
+
+							return (
+								<Marker
+									onClick={onMarkerClick}
+									onMouseOver={ ( ) => {console.log('mouse overing')}}
+									name={venue.id || ''}
+									position={venue.position}
+									key={venue.id || ''}
+									icon={myIcon}
+								/>
+							);
+						}
 					)}
 					{/*--Sets up InfoWindows for each of the markers-------------------------------------------------*/}
 					<InfoWindow
