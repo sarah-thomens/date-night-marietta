@@ -61,7 +61,7 @@ body
 	top: 10vmin;
 	left: 0;
 	width: 30vw;
-	height: 100vw;
+	height: 100%;
 	background-color: LightSkyBlue;
 	text-align: center;
 }
@@ -69,6 +69,7 @@ body
 .list-title
 {
 	color: RoyalBlue;
+	font-size: 4vmin;
 }
 
 .venues-list
@@ -79,7 +80,7 @@ body
 
 .venue
 {
-	padding-bottom: 10px;
+	padding: 0px 10px 10px 0px;
 	cursor: pointer;
 }
 
@@ -91,17 +92,24 @@ body
 
 .venue-name
 {
+	margin-left: 10px;
 	font-weight: bold;
 }
 
-.venue-cost
+.venue-address
 {
-	font-weight: bold;
+	margin-left: 10px;
 }
 
 /*--Filter Buttons------------------------------------------------------------------------------------------*/
+.filter-options
+{
+	margin: 10px;
+}
+
 button
 {
+	font-family: Arial Rounded MT Bold;
 	font-weight: bold;
 	background-color: CornflowerBlue;
 	border: 2px solid RoyalBlue;
@@ -118,16 +126,19 @@ button
 .meal
 {
 	color: Crimson;
+	padding: 10px;
 }
 
 .dessert-coffee
 {
 	color: Navy;
+	padding: 10px;
 }
 
 .entertainment
 {
 	color: DarkGreen;
+	padding: 10px;
 }
 
 /*============================================================================================================
@@ -148,6 +159,11 @@ button
 .place-name
 {
 	margin: 5px;
+}
+
+.place-info img
+{
+	width: 20vw;
 }
 
 .descriptor

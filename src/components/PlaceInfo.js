@@ -19,7 +19,7 @@ export class PlaceInfo extends Component
 		if( venue.picture )
 		{
 			//--Set myPhoto to the picture's url at size 150px------------------------------------------------------
-			myPhoto = venue.picture.prefix + "150" + venue.picture.suffix
+			myPhoto = venue.picture.prefix + "300" + venue.picture.suffix
 		}
 
 		return(

@@ -18,7 +18,7 @@ To install and run this project:
 - [x] Display at least 5 map markers of places in the neighborhood
 - [x] Markers should display by default when app is loaded
 - [x] Clicking a marker will show information about the place
-- [ ] Marker should animate in some way when clicked or selected on list
+- [x] Marker should animate in some way when clicked or selected on list
 
 ###### List
 - [x] Implement a list view of the marker locations
@@ -52,7 +52,7 @@ To install and run this project:
 - [ ] Comments are present and well-organized
 
 ###### Misc
-- [ ] The app is intuitive to use
+- [x] The app is intuitive to use
 - [ ] The app is responsive (usable on mobile devices)
 - [ ] The app uses a serviceWorker for offline use
 - [x] The app is created using React
