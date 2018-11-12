@@ -1,5 +1,5 @@
-import React, { Component } from 'react';																			// Imports React Library
-import PropTypes from 'prop-types';																						// Imports PropTypes
+import React, { Component } from 'react';					// Imports React Library
+import PropTypes from 'prop-types';								// Imports PropTypes
 
 export class ListView extends Component
 {
@@ -8,48 +8,57 @@ export class ListView extends Component
 	{
 		venues: PropTypes.array.isRequired,						// venues array
 		activeVenue: PropTypes.object.isRequired,			// active venue object
-		updateFilter: PropTypes.func.isRequired,			// update filter function
-		updateActiveVenue: PropTypes.func.isRequired	// update active venue function
+		updateFilter: PropTypes.func.isRequired,			// updateFilter function
+		updateActiveVenue: PropTypes.func.isRequired	// updateActiveVenue function
 	}
 
 	//--Renders the ListView Component--------------------------------------------------------------------------
   render( )
 	{
+		const { venues, activeVenue, updateFilter, updateActiveVenue } = this.props	//all props
+
 		return (
 			<div className="list">
+				{/*--Venues List Header----------------------------------------------------------------------------*/}
 				<h2>Venues</h2>
+				{/*--Date Category Filter Option Buttons-----------------------------------------------------------*/}
 				<div className="filter-options" role="group" aria-label="Filter Buttons">
+					{/*--All Filter Option Button--------------------------------------------------------------------*/}
 					<button
 						className="all"
-						onClick= {() => this.props.updateFilter("all")}
+						onClick= {() => updateFilter("all")}
 					>
 						All
 					</button>
+					{/*--Meal Filter Option Button-------------------------------------------------------------------*/}
 					<button
 						className="meal"
-						onClick= {() => this.props.updateFilter("meal")}
+						onClick= {() => updateFilter("meal")}
 					>
 						Food
 					</button>
+					{/*--Dessert & Coffee Filter Option Button-------------------------------------------------------*/}
 					<button
 						className="dessert-coffee"
-						onClick= {() => this.props.updateFilter("dessert-coffee")}
+						onClick= {() => updateFilter("dessert-coffee")}
 					>
-						Sweets
+						Dessert & Coffee
 					</button>
+					{/*--Entertainment Filter Option Button----------------------------------------------------------*/}
 					<button
 						className="entertainment"
-						onClick= {() => this.props.updateFilter("entertainment")}
+						onClick= {() => updateFilter("entertainment")}
 					>
-						Fun
+						Entertainment
 					</button>
 				</div>
+				{/*--List of Venues--------------------------------------------------------------------------------*/}
 				<ul className="venues-list" role="group" aria-label="Venue List">
-					{ this.props.venues.map( (venue) =>
+					{ venues.map( (venue) =>
 						{
 							let activeClass = venue.category;
 
-							if( this.props.activeVenue.id && venue.id === this.props.activeVenue.id )
+							if( activeVenue.id && venue.id === activeVenue.id )
 							{
 								activeClass += " active-list-item";
 							}
@@ -58,15 +67,15 @@ export class ListView extends Component
 								<div key={venue.id} className="venue">
 								<li
 									className={activeClass}
-									onClick= {() => this.props.updateActiveVenue(venue)}
-									onFocus= {() => this.props.updateActiveVenue(venue)}
-									onBlur= {() => this.props.updateActiveVenue({ })}
+									onClick= {() => updateActiveVenue(venue)}
+									onFocus= {() => updateActiveVenue(venue)}
+									onBlur= {() => updateActiveVenue({ })}
 									tabIndex={0}>
 									<div className="venue-name">
-										{venue.name}
+										{venue.name || ""}
 									</div>
 									<div className="venue-address">
-										{venue.address}
+										{venue.address || ""}
 									</div>
 								</li>
 							</div>
