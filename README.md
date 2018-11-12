@@ -6,6 +6,14 @@ To install and run this project:
 * Install all project dependencies with `npm install -g create-react-app`
 * Start the development server with `npm start`
 
+To Run ServiceWorker:
+* The service worker was included with the react build.
+* This service worker will only run in build mode.
+* To work:
+	1. `npm run build` - to run the project from a build
+	2. `npm install -g serve` (might have to use sudo for this) - to install a global server
+	3. `serve -s build` - to run said server
+
 ## Project To-Do's
 ###### Map
 - [x] Get Google Maps API Key
@@ -38,8 +46,8 @@ To install and run this project:
 
 ###### Errors
 - [ ] Errors should be handled (user should know why something did not work)
-- [ ] No console errors should be present
-- [ ] Make sure to include error handling for when browser had trouble initially reaching the API `(??)`
+- [x] No console errors should be present
+- [ ] Make sure to include error handling for when browser has trouble initially reaching the API `(??)`
 
 ###### Accessibility
 - [x] Focus works correctly
@@ -48,13 +56,13 @@ To install and run this project:
 
 ###### README and Comments
 - [x] A README file should be included with steps to run app successfully
-- [ ] Provide attribution to what is used in project in README file
-- [ ] Comments are present and well-organized
+- [x] Provide attribution to what is used in project in README file
+- [x] Comments are present and well-organized
 
 ###### Misc
 - [x] The app is intuitive to use
 - [ ] The app is responsive (usable on mobile devices)
-- [ ] The app uses a serviceWorker for offline use
+- [x] The app uses a serviceWorker for offline use
 - [x] The app is created using React
 - [x] React components are used properly
 - [x] State control is managed appropriately
@@ -63,6 +71,8 @@ To install and run this project:
 ## Resources Used
 * This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+* This projects uses the Google API's to display a map. Information can be found [here](https://developers.google.com/products/) about the different API's.
+* This project uses the Foursquare API to get the venue information. You can find more information [here](https://developer.foursquare.com/)
 * Full Stack's google-maps-react component by Ari Lerner was used to help integrate the Google Map API into the React app. The tutorial was extremely helpful in helping to understand how the two work together and how to make the API work in my project.
 	* The tutorial is [here](https://www.fullstackreact.com/articles/how-to-write-a-google-maps-react-component/#)
 	* The github with the google-maps-react code is [here](https://github.com/fullstackreact/google-maps-react)
