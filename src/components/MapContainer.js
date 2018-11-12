@@ -62,23 +62,25 @@ export class MapContainer extends Component
 						}
 					]}
 				>
-					{/*--Sets default markers on the map-------------------------------------------------------------*/}
+					{/*--Sets default markers and icons on the map---------------------------------------------------*/}
 					{
 						venues.map( (venue) =>
 						{
+							myIcon = ( venue.id === activeVenue.id ) ? '-highlight.png' : '.png';
+
 							switch( venue.category )
 							{
 								case "meal":
-									myIcon = "./red.png";
+									myIcon = "./red" + myIcon;
 									break;
 								case "dessert-coffee":
-									myIcon = "./blue.png";
+									myIcon = "./blue" + myIcon;
 									break;
 								case "entertainment":
-									myIcon = "./green.png";
+									myIcon = "./green" + myIcon;
 									break;
 								default:
-									myIcon = "./red.png";
+									myIcon = "./red" + myIcon;
 									break;
 							}
 
