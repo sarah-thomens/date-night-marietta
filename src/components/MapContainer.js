@@ -56,14 +56,14 @@ export class MapContainer extends Component
 							<Marker
 								onClick={onMarkerClick}
 								name={venue.id || ''}
-								position={venue.position || {}}
+								position={venue.position}
 								key={venue.id || ''}
 							/>
 						)
 					)}
 					{/*--Sets up InfoWindows for each of the markers-------------------------------------------------*/}
 					<InfoWindow
-	          position={activeVenue.position || {}}
+	          position={activeVenue.position}
 	          visible={showingInfoWindow || false}
 						onClose={onInfoWindowClose}>
 							{/*--Sets up the info for each marker using PlaceInfo Component------------------------------*/}
