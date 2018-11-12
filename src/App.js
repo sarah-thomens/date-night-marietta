@@ -221,14 +221,18 @@ class App extends Component
 	//----------------------------------------------------------------------------------------------------------
 	// updateActiveVenue Function
 	//
-	//
+	// Updates the activeVenue state to the current venue being viewed whether by the list view or the markers.
 	//----------------------------------------------------------------------------------------------------------
 	updateActiveVenue = ( theVenue ) =>
 	{
-		this.setState({
-			activeVenue: theVenue,
-			showingInfoWindow: true
-		})
+		//--If theVenue is not an empty object, set the state of the activeVenue and open the info window---------
+		if( theVenue !== {} )
+		{
+			this.setState({
+				activeVenue: theVenue,
+				showingInfoWindow: true
+			})
+		}
 	}
 
 	//--Render function to render the application---------------------------------------------------------------
