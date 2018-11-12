@@ -33,7 +33,7 @@ class App extends Component
 		activeVenue: {},					// active venue object
 		dateFilter: 'all',				// category filter for the date venues
 		showingInfoWindow: false	// boolean to tell when info window is open
-  }
+  };
 
 	// TODO: DELETE THIS FUNCTION WHEN DONE TESTING THE APP-----------------------------------------------------
 	getVenues( )
@@ -71,7 +71,7 @@ class App extends Component
 					category: "meal"
 				}
 			]
-		)
+		);
 	}
 
 	//----------------------------------------------------------------------------------------------------------
@@ -104,7 +104,7 @@ class App extends Component
 		// 			//--set the cost to dollar signs depending on tier level--------------------------------------------
 		// 			for( let i = 0; i < response.response.venue.price.tier; i++ )
 		// 			{
-		// 				cost += response.response.venue.price.currency
+		// 				cost += response.response.venue.price.currency;
 		// 			}
 		// 		}
 		//
@@ -118,7 +118,7 @@ class App extends Component
 		// 			price: cost,
 		// 			picture: response.response.venue.bestPhoto,
 		// 			category: place.category
-		// 		}
+		// 		};
 		//
 		// 		//--Add the new venue to the venues state-------------------------------------------------------------
 		// 		this.setState({
@@ -127,7 +127,7 @@ class App extends Component
 		// 	})
 		// 	//--If an error occurs, let the user know---------------------------------------------------------------
 		// 	.catch( e => { alert("Foursquare Loading Error: \n" + e); } )
-		// })
+		// });
 	}
 
 	//----------------------------------------------------------------------------------------------------------
@@ -157,7 +157,7 @@ class App extends Component
 			{
 				activeVenue: myVenue,
 				showingInfoWindow: true
-			})
+			});
 		}
 		//--Else set a venue stating no information was found at the map center-----------------------------------
 		else
@@ -170,7 +170,7 @@ class App extends Component
 											 address: "",
 											 category: "all"},
 				showingInfoWindow: true
-			})
+			});
 		}
 	};
 
@@ -214,36 +214,38 @@ class App extends Component
 		{
 			this.setState({
 				dateFilter: "all"
-			})
+			});
 		}
 	}
 
 	//----------------------------------------------------------------------------------------------------------
 	// updateActiveVenue Function
 	//
-	// Updates the activeVenue state to the current venue being viewed whether by the list view or the markers.
+	// Updates the activeVenue state to the current venue being viewed by the list view.
 	//----------------------------------------------------------------------------------------------------------
 	updateActiveVenue = ( theVenue ) =>
 	{
 		//--If theVenue is not an empty object, set the state of the activeVenue and open the info window---------
-		if( theVenue !== {} )
+		if( theVenue !== undefined )
 		{
 			this.setState({
 				activeVenue: theVenue,
 				showingInfoWindow: true
-			})
+			});
 		}
 	}
 
 	//--Render function to render the application---------------------------------------------------------------
   render( )
 	{
-		let myVenues;
+		let myVenues;		// variable to hold filtered venues array
 
+		//--if the dateFilter is set to all, set myVenues to the state--------------------------------------------
 		if( this.state.dateFilter === "all" )
 		{
 			myVenues = this.state.venues;
 		}
+		//--if the dateFilter is set to anything else, filter the venues array with that state--------------------
 		else
 		{
 			myVenues = this.state.venues.filter( (venue) => venue.category === this.state.dateFilter );
@@ -269,7 +271,6 @@ class App extends Component
 					<MapContainer
 						venues={myVenues}
 						showingInfoWindow= {this.state.showingInfoWindow}
-						activeMarker= {this.state.activeMarker}
 						activeVenue= {this.state.activeVenue}
 						onMarkerClick= {this.onMarkerClick}
 						onInfoWindowClose= {this.onInfoWindowClose}
