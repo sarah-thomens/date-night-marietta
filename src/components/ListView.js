@@ -8,6 +8,7 @@ export class ListView extends Component
 	{
 		venues: PropTypes.array.isRequired,						// venues array
 		activeVenue: PropTypes.object.isRequired,			// active venue object
+		dateFilter: PropTypes.string.isRequired,			// current date filter category
 		updateFilter: PropTypes.func.isRequired,			// updateFilter function
 		updateActiveVenue: PropTypes.func.isRequired	// updateActiveVenue function
 	}
@@ -15,38 +16,38 @@ export class ListView extends Component
 	//--Renders the ListView Component--------------------------------------------------------------------------
   render( )
 	{
-		const { venues, activeVenue, updateFilter, updateActiveVenue } = this.props	//all props
+		const { venues, activeVenue, dateFilter, updateFilter, updateActiveVenue } = this.props	//all props
 
 		return (
 			<div className="list">
 				{/*--Venues List Header----------------------------------------------------------------------------*/}
-				<h2>Venues</h2>
+				<h2 className="list-title">Venues</h2>
 				{/*--Date Category Filter Option Buttons-----------------------------------------------------------*/}
 				<div className="filter-options" role="group" aria-label="Filter Buttons">
 					{/*--All Filter Option Button--------------------------------------------------------------------*/}
 					<button
-						className="all"
+						className={( dateFilter === "all" ) ? "all active-filter-button" : "all"}
 						onClick= {() => updateFilter("all")}
 					>
 						All
 					</button>
 					{/*--Meal Filter Option Button-------------------------------------------------------------------*/}
 					<button
-						className="meal"
+						className={( dateFilter === "meal" ) ? "meal active-filter-button" : "meal"}
 						onClick= {() => updateFilter("meal")}
 					>
 						Food
 					</button>
 					{/*--Dessert & Coffee Filter Option Button-------------------------------------------------------*/}
 					<button
-						className="dessert-coffee"
+						className={( dateFilter === "dessert-coffee" ) ? "dessert-coffee active-filter-button" : "dessert-coffee"}
 						onClick= {() => updateFilter("dessert-coffee")}
 					>
 						Dessert & Coffee
 					</button>
 					{/*--Entertainment Filter Option Button----------------------------------------------------------*/}
 					<button
-						className="entertainment"
+						className={( dateFilter === "entertainment" ) ? "entertainment active-filter-button" : "entertainment"}
 						onClick= {() => updateFilter("entertainment")}
 					>
 						Entertainment

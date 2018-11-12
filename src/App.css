@@ -21,6 +21,7 @@ body, html
 body
 {
 	overflow: hidden;
+	font-family: Arial Rounded MT Bold;
 }
 
 /*============================================================================================================
@@ -47,7 +48,8 @@ body
 	position: absolute;
 	top: 0;
 	left: 0;
-	background-color: lightblue;
+	background-color: RoyalBlue;
+	color: LightCyan;
 }
 
 /*============================================================================================================
@@ -59,8 +61,14 @@ body
 	top: 10vmin;
 	left: 0;
 	width: 30vw;
-	background-color: pink;
+	height: 100vw;
+	background-color: LightSkyBlue;
 	text-align: center;
+}
+
+.list-title
+{
+	color: RoyalBlue;
 }
 
 .venues-list
@@ -69,25 +77,16 @@ body
 	list-style-type: none;
 }
 
+.venue
+{
+	padding-bottom: 10px;
+	cursor: pointer;
+}
+
 .active-list-item
 {
-	border: 1px solid black;
-}
-
-/*--Date Category Control-----------------------------------------------------------------------------------*/
-.meal
-{
-	color: blue;
-}
-
-.dessert-coffee
-{
-	color: red;
-}
-
-.entertainment
-{
-	color: purple;
+	background-color: LightCyan;
+	border: 2px solid RoyalBlue;
 }
 
 .venue-name
@@ -100,12 +99,60 @@ body
 	font-weight: bold;
 }
 
+/*--Filter Buttons------------------------------------------------------------------------------------------*/
+button
+{
+	font-weight: bold;
+	background-color: CornflowerBlue;
+	border: 2px solid RoyalBlue;
+	cursor: pointer;
+	padding: 10px;
+}
+
+.active-filter-button
+{
+	background-color: LightCyan;
+}
+
+/*--Date Category Control-----------------------------------------------------------------------------------*/
+.meal
+{
+	color: Crimson;
+}
+
+.dessert-coffee
+{
+	color: Navy;
+}
+
+.entertainment
+{
+	color: DarkGreen;
+}
+
 /*============================================================================================================
  Map CSS
 ============================================================================================================*/
 .my-map
 {
 	z-index: -1;
+}
+
+.place-info
+{
+	font-family: Arial Rounded MT Bold;
+	text-align: center;
+	color: RoyalBlue;
+}
+
+.place-name
+{
+	margin: 5px;
+}
+
+.descriptor
+{
+	font-weight: bold;
 }
 
 /*============================================================================================================

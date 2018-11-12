@@ -274,6 +274,7 @@ class App extends Component
 					<ListView
 						venues={myVenues}
 						activeVenue={this.state.activeVenue || {}}
+						dateFilter={this.state.dateFilter || ""}
 						updateFilter={this.updateFilter}
 						updateActiveVenue={this.updateActiveVenue}
 					/>
