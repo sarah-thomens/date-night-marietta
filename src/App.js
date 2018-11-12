@@ -207,7 +207,8 @@ class App extends Component
 		{
 			this.setState({
 				dateFilter: theFilter,
-				showingInfoWindow: false
+				showingInfoWindow: false,
+				activeVenue: {}
 			});
 		}
 		//--If theFilter does not have content, set it to the default, "all"--------------------------------------
@@ -254,19 +255,6 @@ class App extends Component
 
     return (
 			<div className='app'>
-				{/*--Main Page Header------------------------------------------------------------------------------*/}
-				<div className='app-header'>
-					<h1>Date Night Marietta</h1>
-				</div>
-				{/*--ListView--------------------------------------------------------------------------------------*/}
-				<div className='list-view'>
-					<ListView
-						venues={myVenues}
-						activeVenue={this.state.activeVenue || {}}
-						updateFilter={this.updateFilter}
-						updateActiveVenue={this.updateActiveVenue}
-					/>
-				</div>
 				{/*--Map-------------------------------------------------------------------------------------------*/}
 				<div className='my-map'>
 					<MapContainer
@@ -275,6 +263,19 @@ class App extends Component
 						activeVenue= {this.state.activeVenue || {}}
 						onMarkerClick= {this.onMarkerClick}
 						onInfoWindowClose= {this.onInfoWindowClose}
+					/>
+				</div>
+				{/*--Main Page Header------------------------------------------------------------------------------*/}
+				<header className='app-header'>
+					Date Night Marietta
+				</header>
+				{/*--ListView--------------------------------------------------------------------------------------*/}
+				<div className='list-view'>
+					<ListView
+						venues={myVenues}
+						activeVenue={this.state.activeVenue || {}}
+						updateFilter={this.updateFilter}
+						updateActiveVenue={this.updateActiveVenue}
 					/>
 				</div>
 			</div>
