@@ -84,6 +84,11 @@ body
 	cursor: pointer;
 }
 
+.venue:hover
+{
+	border: 2px solid RoyalBlue;
+}
+
 .active-list-item
 {
 	background-color: LightCyan;
@@ -115,6 +120,16 @@ button
 	border: 2px solid RoyalBlue;
 	cursor: pointer;
 	padding: 10px;
+}
+
+button:focus
+{
+	background-color: LightSkyBlue;
+}
+
+button:hover
+{
+	background-color: LightSkyBlue;
 }
 
 .active-filter-button
@@ -163,7 +178,7 @@ button
 
 .place-info img
 {
-	width: 20vw;
+	width: 10vw;
 }
 
 .descriptor
