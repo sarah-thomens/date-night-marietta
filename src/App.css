@@ -164,6 +164,9 @@ button:hover
 	z-index: -1;
 }
 
+/*============================================================================================================
+ InfoWindow CSS
+============================================================================================================*/
 .place-info
 {
 	font-family: Arial Rounded MT Bold;
@@ -279,32 +282,32 @@ button:hover
 	}
 }
 
-/*--Changing CSS at 800px-----------------------------------------------------------------------------------*/
-@media screen and (min-width: 800px)
+/*--Changing CSS at 1000px----------------------------------------------------------------------------------*/
+@media screen and (min-width: 1000px)
 {
 	.place-info img
 	{
-		width: 160px;
+		width: 200px;
 	}
 
 	.place-name
 	{
-		font-size: 20px;
+		font-size: 25px;
 	}
 
 	.place-address
 	{
-		font-size: 15px;
+		font-size: 20px;
 	}
 
 	.place-price
 	{
-		font-size: 15px;
+		font-size: 20px;
 	}
 
 	.descriptor
 	{
-		font-size: 15px;
+		font-size: 20px;
 	}
 }
 
