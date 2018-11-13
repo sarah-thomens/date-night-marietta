@@ -22,7 +22,7 @@ class App extends Component
 		//--Earl Smith Strand Theatre Object----------------------------------------------------------------------
 	 	{
 			id: '4be413968a8cb713163ec4a0',
-			category: 'entertainment'
+			category: 'fun'
 		}
 	];
 
@@ -48,7 +48,7 @@ class App extends Component
 					price: "",
 					picture: { 	prefix: "https://fastly.4sqi.net/img/general/",
 											suffix: "/31766099_wPSTdWjq_RCvlz1DQKuipOcOcR0zkoMupcSOKqaM_Qo.jpg" },
-					category: "entertainment"
+					category: "fun"
 				},
 				{
 					name: "Sarah Jean's Ice Cream Shop",

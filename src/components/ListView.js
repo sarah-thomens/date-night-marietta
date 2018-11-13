@@ -45,12 +45,12 @@ export class ListView extends Component
 					>
 						Dessert
 					</button>
-					{/*--Entertainment Filter Option Button----------------------------------------------------------*/}
+					{/*--Fun Filter Option Button--------------------------------------------------------------------*/}
 					<button
-						className={( dateFilter === "entertainment" ) ? "entertainment active-filter-button" : "entertainment"}
-						onClick= {() => updateFilter("entertainment")}
+						className={( dateFilter === "fun" ) ? "fun active-filter-button" : "fun"}
+						onClick= {() => updateFilter("fun")}
 					>
-						Entertainment
+						Fun
 					</button>
 				</div>
 				{/*--List of Venues--------------------------------------------------------------------------------*/}
