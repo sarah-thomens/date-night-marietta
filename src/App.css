@@ -201,13 +201,14 @@ button:hover
 /*============================================================================================================
  Responsive Desgin Breakpoints
 ============================================================================================================*/
+/*--Changing CSS at 600px-----------------------------------------------------------------------------------*/
 @media screen and (max-width: 600px)
 {
 	.app-header
 	{
 		height: 60px;
-		padding: 27px 0px;
-		font-size: 30px;
+		padding: 15px 0px;
+		font-size: 24px;
 	}
 
 	.list-view
@@ -219,13 +220,13 @@ button:hover
 
 	.list-title
 	{
-		font-size: 20px;
-		margin: 11.1px;
+		display: none;
 	}
 
 	.venues-list
 	{
-		font-size: 16.65px;
+		text-align: center;
+		font-size: 12px;
 	}
 
 	.venue
@@ -234,21 +235,47 @@ button:hover
 		padding: 2px 16.65px;
 	}
 
-	.venue:hover
+	.venue-address
 	{
-		border: 2.22px solid RoyalBlue;
+		display: none;
 	}
 
-	.active-list-item
+	.filter-options
 	{
-		border: 2.22px solid RoyalBlue;
+		margin-top: 10px;
 	}
 
 	button
 	{
-		font-size: 14.43px;
+		font-size: 12px;
 		border: 2.22px solid RoyalBlue;
-		padding: 11.1px 5.55px;
+		padding: 5px 5px;
+	}
+
+	.place-name
+	{
+		margin: 0px;
+		font-size: 15px;
+	}
+
+	.place-address
+	{
+		font-size: 12px;
+	}
+
+	.place-price
+	{
+		font-size: 12px;
+	}
+
+	.place-info img
+	{
+		width: 120px;
+	}
+
+	.descriptor
+	{
+		font-size: 12px;
 	}
 }
 
