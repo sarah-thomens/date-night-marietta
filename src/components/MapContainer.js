@@ -76,7 +76,7 @@ export class MapContainer extends Component
 								case "dessert":
 									myIcon = "./blue" + myIcon;
 									break;
-								case "fsun":
+								case "fun":
 									myIcon = "./green" + myIcon;
 									break;
 								default:

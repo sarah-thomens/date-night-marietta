@@ -57,7 +57,7 @@ export class ListView extends Component
 				<ul className="venues-list" role="group" aria-label="Venue List">
 					{ venues.map( (venue) =>
 						{
-							let activeClass = venue.category;
+							let activeClass = "venue";
 
 							if( activeVenue.id && venue.id === activeVenue.id )
 							{
@@ -65,23 +65,25 @@ export class ListView extends Component
 							}
 
 							return (
-								<div key={venue.id} className="venue">
-								<li
-									className={activeClass}
-									onClick= {() => updateActiveVenue(venue)}
-									onFocus= {() => updateActiveVenue(venue)}
-									onBlur= {() => updateActiveVenue({ })}
-									tabIndex={0}>
-									<div className="venue-name">
-										{venue.name || ""}
-									</div>
-									<div className="venue-address">
-										{venue.address || ""}
-									</div>
-								</li>
-							</div>
-						)
-					})}
+								<div key={venue.id} className={venue.category}>
+									<li
+										className={activeClass}
+										onClick= {() => updateActiveVenue(venue)}
+										onFocus= {() => updateActiveVenue(venue)}
+										onBlur= {() => updateActiveVenue({ })}
+										tabIndex={0}
+									>
+										<div className="venue-name">
+											{venue.name || ""}
+										</div>
+										<div className="venue-address">
+											{venue.address || ""}
+										</div>
+									</li>
+								</div>
+							)
+						})
+					}
 				</ul>
 			</div>
 		);
