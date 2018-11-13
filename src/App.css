@@ -173,7 +173,18 @@ button:hover
 
 .place-name
 {
-	margin: 5px;
+	margin: 0px;
+	font-size: 2.5vw;
+}
+
+.place-address
+{
+	font-size: 2vw;
+}
+
+.place-price
+{
+	font-size: 2vw;
 }
 
 .place-info img
@@ -184,6 +195,7 @@ button:hover
 .descriptor
 {
 	font-weight: bold;
+	font-size: 2vw;
 }
 
 /*============================================================================================================
@@ -195,6 +207,26 @@ button:hover
 	.place-info img
 	{
 		width: 160px;
+	}
+
+	.place-name
+	{
+		font-size: 20px;
+	}
+
+	.place-address
+	{
+		font-size: 15px;
+	}
+
+	.place-price
+	{
+		font-size: 15px;
+	}
+
+	.descriptor
+	{
+		font-size: 15px;
 	}
 }
 
