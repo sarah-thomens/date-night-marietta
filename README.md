@@ -45,9 +45,9 @@ To Run ServiceWorker:
 - [x] All API's should load asynchronously
 
 ###### Errors
-- [ ] Errors should be handled (user should know why something did not work)
+- [x] Errors should be handled (user should know why something did not work)
 - [x] No console errors should be present
-- [ ] Make sure to include error handling for when browser has trouble initially reaching the API `(??)`
+- [x] Make sure to include error handling for when browser has trouble initially reaching the API
 
 ###### Accessibility
 - [x] Focus works correctly
