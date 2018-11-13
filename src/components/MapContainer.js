@@ -41,8 +41,8 @@ export class MapContainer extends Component
 					zoom={18}
 					initialCenter=
 					{{
-	          	lat: 33.9533,
-	            lng: -84.551039
+	          	lat: 33.9536,
+	            lng: -84.550539
 	        }}
 					onClick={onInfoWindowClose}
 					draggable={false}

@@ -201,7 +201,58 @@ button:hover
 /*============================================================================================================
  Responsive Desgin Breakpoints
 ============================================================================================================*/
-/*--Changing Font Sizes at 800px----------------------------------------------------------------------------*/
+@media screen and (max-width: 600px)
+{
+	.app-header
+	{
+		height: 60px;
+		padding: 27px 0px;
+		font-size: 30px;
+	}
+
+	.list-view
+	{
+		top: 60px;
+		width: 100vw;
+		height: auto;
+	}
+
+	.list-title
+	{
+		font-size: 20px;
+		margin: 11.1px;
+	}
+
+	.venues-list
+	{
+		font-size: 16.65px;
+	}
+
+	.venue
+	{
+		margin: 2px 27.75px;
+		padding: 2px 16.65px;
+	}
+
+	.venue:hover
+	{
+		border: 2.22px solid RoyalBlue;
+	}
+
+	.active-list-item
+	{
+		border: 2.22px solid RoyalBlue;
+	}
+
+	button
+	{
+		font-size: 14.43px;
+		border: 2.22px solid RoyalBlue;
+		padding: 11.1px 5.55px;
+	}
+}
+
+/*--Changing CSS at 800px-----------------------------------------------------------------------------------*/
 @media screen and (min-width: 800px)
 {
 	.place-info img
@@ -230,7 +281,7 @@ button:hover
 	}
 }
 
-/*--Changing Font Sizes at 1110px---------------------------------------------------------------------------*/
+/*--Changing CSS at 1110px----------------------------------------------------------------------------------*/
 @media screen and (min-width: 1110px)
 {
 	.app-header
