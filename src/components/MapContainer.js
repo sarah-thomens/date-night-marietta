@@ -73,7 +73,7 @@ export class MapContainer extends Component
 								case "meal":
 									myIcon = "./red" + myIcon;
 									break;
-								case "dessert-coffee":
+								case "dessert":
 									myIcon = "./blue" + myIcon;
 									break;
 								case "entertainment":

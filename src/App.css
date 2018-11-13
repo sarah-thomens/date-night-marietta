@@ -144,7 +144,7 @@ button:hover
 	padding: 10px;
 }
 
-.dessert-coffee
+.dessert
 {
 	color: Navy;
 	padding: 10px;
@@ -191,6 +191,15 @@ button:hover
 ============================================================================================================*/
 /*--Changing Font Sizes at 800px----------------------------------------------------------------------------*/
 @media screen and (min-width: 800px)
+{
+	.place-info img
+	{
+		width: 160px;
+	}
+}
+
+/*--Changing Font Sizes at 1080px---------------------------------------------------------------------------*/
+@media screen and (min-width: 1080px)
 {
 	.place-info img
 	{

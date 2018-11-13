@@ -38,12 +38,12 @@ export class ListView extends Component
 					>
 						Food
 					</button>
-					{/*--Dessert & Coffee Filter Option Button-------------------------------------------------------*/}
+					{/*--Dessert Filter Option Button----------------------------------------------------------------*/}
 					<button
-						className={( dateFilter === "dessert-coffee" ) ? "dessert-coffee active-filter-button" : "dessert-coffee"}
-						onClick= {() => updateFilter("dessert-coffee")}
+						className={( dateFilter === "dessert" ) ? "dessert active-filter-button" : "dessert"}
+						onClick= {() => updateFilter("dessert")}
 					>
-						Dessert & Coffee
+						Dessert
 					</button>
 					{/*--Entertainment Filter Option Button----------------------------------------------------------*/}
 					<button

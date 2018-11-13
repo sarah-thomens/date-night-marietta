@@ -17,7 +17,7 @@ class App extends Component
 		//--Sarah Jean's Ice Cream Object-------------------------------------------------------------------------
 		{
 			id: '4a8f0d7cf964a520c01320e3',
-			category: 'dessert-coffee'
+			category: 'dessert'
 		},
 		//--Earl Smith Strand Theatre Object----------------------------------------------------------------------
 	 	{
@@ -58,7 +58,7 @@ class App extends Component
 					price: "$",
 					picture: { 	prefix: "https://fastly.4sqi.net/img/general/",
 											suffix: "/VJCJ4F32CPGPCNREF0L0SVMJA2WUPZJVEG0GBTGKU2SS5JRT.jpg" },
-					category: "dessert-coffee"
+					category: "dessert"
 				},
 				{
 					name: "Taqueria Tsunami",
