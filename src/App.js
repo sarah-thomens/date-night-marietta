@@ -96,53 +96,53 @@ class App extends Component
 	//----------------------------------------------------------------------------------------------------------
 	componentDidMount( )
 	{
-		// this.setState({
-		// 	venues: this.getVenues( )
-		// });
-		//--Foreach venue in Marietta...--------------------------------------------------------------------------
-		this.placeIdsArray.forEach( (place) =>
-		{
-			//--Fetch the venue information from FourSquare API-----------------------------------------------------
-			fetch( 'https://api.foursquare.com/v2/venues/'+place.id+'?client_id=SGUQAZSZCYVPMR2KFU1ZGRYJJEKIOJ2M1PLMSTXIGLQSVDYS&client_secret=ZFAZYEHSNGWXJYUABZFTN0F45SSS14GUASWQEOTG240HTQ3M&v=20180323')
-			//--Turn information into a json file-------------------------------------------------------------------
-			.then( (response) =>
-			{
-				return response.json( );
-			})
-			.then( (response) =>
-			{
-				let cost = '';		// cost variable for venue pricing
-
-				//--if there is a price on the venue...---------------------------------------------------------------
-				if( response.response.venue.price )
-				{
-					//--set the cost to dollar signs depending on tier level--------------------------------------------
-					for( let i = 0; i < response.response.venue.price.tier; i++ )
-					{
-						cost += response.response.venue.price.currency;
-					}
-				}
-
-				//--Set the venue information to a venue variable-----------------------------------------------------
-				let venue =
-				{
-					name: response.response.venue.name,
-					id: place.id,
-					position: { lat: response.response.venue.location.lat, lng: response.response.venue.location.lng },
-					address: response.response.venue.location.address,
-					price: cost,
-					picture: response.response.venue.bestPhoto,
-					category: place.category
-				};
-
-				//--Add the new venue to the venues state-------------------------------------------------------------
-				this.setState({
-					venues: [...this.state.venues, venue ]
-				});
-			})
-			//--If an error occurs, let the user know---------------------------------------------------------------
-			.catch( e => { alert("Foursquare Loading Error: \n" + e); } )
+		this.setState({
+			venues: this.getVenues( )
 		});
+		//--Foreach venue in Marietta...--------------------------------------------------------------------------
+	// 	this.placeIdsArray.forEach( (place) =>
+	// 	{
+	// 		//--Fetch the venue information from FourSquare API-----------------------------------------------------
+	// 		fetch( 'https://api.foursquare.com/v2/venues/'+place.id+'?client_id=SGUQAZSZCYVPMR2KFU1ZGRYJJEKIOJ2M1PLMSTXIGLQSVDYS&client_secret=ZFAZYEHSNGWXJYUABZFTN0F45SSS14GUASWQEOTG240HTQ3M&v=20180323')
+	// 		//--Turn information into a json file-------------------------------------------------------------------
+	// 		.then( (response) =>
+	// 		{
+	// 			return response.json( );
+	// 		})
+	// 		.then( (response) =>
+	// 		{
+	// 			let cost = '';		// cost variable for venue pricing
+	//
+	// 			//--if there is a price on the venue...---------------------------------------------------------------
+	// 			if( response.response.venue.price )
+	// 			{
+	// 				//--set the cost to dollar signs depending on tier level--------------------------------------------
+	// 				for( let i = 0; i < response.response.venue.price.tier; i++ )
+	// 				{
+	// 					cost += response.response.venue.price.currency;
+	// 				}
+	// 			}
+	//
+	// 			//--Set the venue information to a venue variable-----------------------------------------------------
+	// 			let venue =
+	// 			{
+	// 				name: response.response.venue.name,
+	// 				id: place.id,
+	// 				position: { lat: response.response.venue.location.lat, lng: response.response.venue.location.lng },
+	// 				address: response.response.venue.location.address,
+	// 				price: cost,
+	// 				picture: response.response.venue.bestPhoto,
+	// 				category: place.category
+	// 			};
+	//
+	// 			//--Add the new venue to the venues state-------------------------------------------------------------
+	// 			this.setState({
+	// 				venues: [...this.state.venues, venue ]
+	// 			});
+	// 		})
+	// 		//--If an error occurs, let the user know---------------------------------------------------------------
+	// 		.catch( e => { alert("Foursquare Loading Error: \n" + e); } )
+	// 	});
 	}
 
 	//----------------------------------------------------------------------------------------------------------

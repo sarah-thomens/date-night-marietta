@@ -55,7 +55,7 @@ export class MapContainer extends Component
 					styles={[
 						{
 							featureType: "poi",
-							elementType:"labels",
+							elementType: "labels",
 							stylers: [
 								{ visibility: "off" }
 							]
