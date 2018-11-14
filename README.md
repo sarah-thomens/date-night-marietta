@@ -61,7 +61,7 @@ To Run ServiceWorker:
 
 ###### Misc
 - [x] The app is intuitive to use
-- [ ] The app is responsive (usable on mobile devices)
+- [x] The app is responsive (usable on mobile devices)
 - [x] The app uses a serviceWorker for offline use
 - [x] The app is created using React
 - [x] React components are used properly
