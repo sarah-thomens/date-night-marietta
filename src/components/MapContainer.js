@@ -15,6 +15,14 @@ export class MapContainer extends Component
 		onInfoWindowClose: PropTypes.func.isRequired	// onInfoWindowClose function
 	}
 
+	onReady( )
+	{
+		document.getElementsByClassName('marietta-map')[0].firstChild
+			.setAttribute("style", "position: absolute; height: 100%;");
+		document.getElementsByClassName('marietta-map')[0].firstChild
+			.setAttribute("class", "map-hook");
+	}
+
 	//--Renders the MapContainer Component----------------------------------------------------------------------
   render( )
 	{
@@ -41,10 +49,11 @@ export class MapContainer extends Component
 					zoom={18}
 					initialCenter=
 					{{
-	          	lat: 33.9536,
-	            lng: -84.550539
+	          	lat: 33.952774,
+	            lng: -84.549606
 	        }}
 					onClick={onInfoWindowClose}
+					onReady={this.onReady}
 					draggable={false}
 					zoomControl={false}
 					clickableIcons={false}

@@ -15,27 +15,30 @@ html
 
 body, html
 {
-	/*height:100%;*/
+	height:100%;
+	width: 100%;
 }
 
 body
 {
-	overflow: hidden;
 	font-family: Arial Rounded MT Bold;
+	margin: 0;
+	padding: 0;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: LightSkyBlue;
 }
 
 /*============================================================================================================
  App CSS
 ============================================================================================================*/
-#root
-{
-	height:100%;
-	overflow:hidden;
-}
-
 .app
 {
 	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-flow: row wrap;
+	align-content: flex-start;
 }
 
 .app-header
@@ -45,7 +48,6 @@ body
 	height: 10vw;
 	padding: 2.5vw 0;
 	font-size: 4vw;
-	position: absolute;
 	top: 0;
 	left: 0;
 	background-color: RoyalBlue;
@@ -57,11 +59,7 @@ body
 ============================================================================================================*/
 .list-view
 {
-	position: absolute;
-	top: 10vw;
-	left: 0;
 	width: 30vw;
-	height: 100%;
 	background-color: LightSkyBlue;
 	text-align: center;
 }
@@ -159,9 +157,9 @@ button:hover
 /*============================================================================================================
  Map CSS
 ============================================================================================================*/
-.my-map
+.map-hook
 {
-	z-index: -1;
+	width: 70%;
 }
 
 /*============================================================================================================
@@ -207,6 +205,12 @@ button:hover
 /*--Changing CSS at 600px-----------------------------------------------------------------------------------*/
 @media screen and (max-width: 600px)
 {
+	.app
+	{
+		flex-direction: column;
+		align-content: flex-start;
+	}
+
 	.app-header
 	{
 		height: 60px;
@@ -279,6 +283,11 @@ button:hover
 	.descriptor
 	{
 		font-size: 12px;
+	}
+
+	.map-hook
+	{
+		width: 100%;
 	}
 }
 
