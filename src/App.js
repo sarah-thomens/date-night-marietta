@@ -104,7 +104,7 @@ class App extends Component
 		this.placeIdsArray.forEach( (place) =>
 		{
 			//--Fetch the venue information from FourSquare API-----------------------------------------------------
-			fetch( 'https://api.foursquare.com/v2/venues/'+place.id+'?client_id=3B45BJ2LMUR2ZYTMOHFKUH0DA5U3QNVVALLD1OXOCKFBVIQ2&client_secret=O2RE43ZIJG0FCF4ASXLTG2JHUZKRZ2WJEEWVPXANNYGXQUXQ&v=20180323')
+			fetch( 'https://api.foursquare.com/v2/venues/'+place.id+'?client_id=SGUQAZSZCYVPMR2KFU1ZGRYJJEKIOJ2M1PLMSTXIGLQSVDYS&client_secret=ZFAZYEHSNGWXJYUABZFTN0F45SSS14GUASWQEOTG240HTQ3M&v=20180323')
 			//--Turn information into a json file-------------------------------------------------------------------
 			.then( (response) =>
 			{
